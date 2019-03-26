@@ -3,24 +3,41 @@ import org.javagram.response.AuthCheckedPhone;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.text.Normalizer;
 
-public class Loader
-{
+public class Loader {
     static JFrame jFrame = new JFrame();
     static Decoration decoration = new Decoration();
     ;
 
-    static Boolean userRegistered = false;
+    static Boolean userRegistered;
+
+    static TelegramApiBridge bridge;
 
 
     public static void main(String[] args) throws IOException {
+        bridge = new TelegramApiBridge(
+                "149.154.167.50:443",
+                692111,
+                "80b53f81bb56fd854742600678fd27ad");
+
+
         AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
-//
-//    TelegramApiBridge bridge = new TelegramApiBridge("149.154.167.50:443",692111, "80b53f81bb56fd854742600678fd27ad");
-//    AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
-//    AuthCheckedPhone checkedPhone = bridge.authCheckPhone(authorizationFormEnterPhoneNumber.getYourNumber().trim().replaceAll("[^0-9]+", ""));
-//    userRegistered = checkedPhone.isRegistered();
+
+        jFrame.setSize(800, 600);
+        jFrame.setUndecorated(true);
+        jFrame.setContentPane(decoration.getRootPanel());
+        decoration.setContentPanel(formEnterPhoneNumber.getRootPanel());
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+    }
+
+    public void checkedPhone(String string) throws IOException {
+        userRegistered = false;
+        System.out.println("Проверка номера:" + string);
+        //проверка б номера сюда
+        AuthCheckedPhone checkedPhone = bridge.authCheckPhone(string.trim().replaceAll("[^0-9]+", ""));
+        userRegistered = checkedPhone.isRegistered();
+    }
 //
 //    ---------------------------------------------------------------
 //        System.out.println(checkedPhone.isRegistered());
@@ -48,22 +65,10 @@ public class Loader
 //            System.out.println(contactsList.get(i));
 
 
-
-
-
-        jFrame.setSize(800,600);
-        jFrame.setUndecorated(true);
-        jFrame.setContentPane(decoration.getRootPanel());
-        decoration.setContentPanel(formEnterPhoneNumber.getRootPanel());
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-
-
-        }
+}
 //    public void changeForm (JPanel jPanel1, JPanel jPanel2)
 //    {
 ////        jPanel1.setVisible(false);
 //        decoration.setContentPanel(jPanel2);
 ////        jPanel2.setVisible(true);
 //    }
-}

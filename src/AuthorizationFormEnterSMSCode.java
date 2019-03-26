@@ -12,6 +12,7 @@ public class AuthorizationFormEnterSMSCode {
     AuthorizationFormEnterSMSCode ()
     {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
+        textAreaYouNumberString.setText(AuthorizationFormEnterPhoneNumber.yourNumber);
     }
 
     public JPanel getRootPanel() {

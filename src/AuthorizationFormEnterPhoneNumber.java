@@ -3,6 +3,7 @@ import org.javagram.response.AuthCheckedPhone;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class AuthorizationFormEnterPhoneNumber extends  Loader{
     private JPanel rootPanel;
@@ -25,6 +26,11 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
         buttonContinue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    checkedPhone(getYourNumber());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 if (userRegistered)
                 {
                     //changeForm (sendSmS)
@@ -49,6 +55,6 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
 
     public String getYourNumber()
     {
-       return yourNumberField.getText();
+       return textAreaFirstNumbe.getText() + yourNumberField.getText();
     }
 }
