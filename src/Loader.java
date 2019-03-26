@@ -7,18 +7,23 @@ import java.text.Normalizer;
 
 public class Loader
 {
-    public static JFrame jFrame = new JFrame();
-    public static Boolean userRegistered;
+    static JFrame jFrame = new JFrame();
+    static Decoration decoration = new Decoration();
+    ;
+
+    static Boolean userRegistered = true;
 
 
     public static void main(String[] args) throws IOException {
-
-    TelegramApiBridge bridge = new TelegramApiBridge("149.154.167.50:443",692111, "80b53f81bb56fd854742600678fd27ad");
-    AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
-    AuthCheckedPhone checkedPhone = bridge.authCheckPhone(authorizationFormEnterPhoneNumber.getYourNumber().trim().replaceAll("[^0-9]+", ""));
-    userRegistered = checkedPhone.isRegistered();
+        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+//
+//    TelegramApiBridge bridge = new TelegramApiBridge("149.154.167.50:443",692111, "80b53f81bb56fd854742600678fd27ad");
+//    AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+//    AuthCheckedPhone checkedPhone = bridge.authCheckPhone(authorizationFormEnterPhoneNumber.getYourNumber().trim().replaceAll("[^0-9]+", ""));
+//    userRegistered = checkedPhone.isRegistered();
+//
+//    ---------------------------------------------------------------
 //        System.out.println(checkedPhone.isRegistered());
-    {
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 //
 //        System.out.println("Please, type phone number: ");
@@ -43,8 +48,7 @@ public class Loader
 //            System.out.println(contactsList.get(i));
 
 
-        Decoration decoration = new Decoration();
-        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+
 
 
         jFrame.setSize(800,600);
@@ -56,11 +60,10 @@ public class Loader
 
 
         }
-    }
-    public void changeForm (JPanel jPanel1, JPanel jPanel2)
-    {
-        jPanel1.setVisible(false);
-        jFrame.setContentPane(jPanel2.getRootPane());
-        jPanel2.setVisible(true);
-    }
+//    public void changeForm (JPanel jPanel1, JPanel jPanel2)
+//    {
+////        jPanel1.setVisible(false);
+//        decoration.setContentPanel(jPanel2);
+////        jPanel2.setVisible(true);
+//    }
 }

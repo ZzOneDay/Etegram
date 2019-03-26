@@ -28,6 +28,8 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
                 if (userRegistered)
                 {
                     //changeForm (sendSmS)
+                    AuthorizationFormEnterSMSCode formEnterSMSCode = new AuthorizationFormEnterSMSCode();
+                    decoration.setContentPanel(formEnterSMSCode.getRootPanel());
                 }
                 else
                     {
