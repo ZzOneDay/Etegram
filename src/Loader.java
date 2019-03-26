@@ -1,6 +1,3 @@
-import Frame.AuthorizationFormEnterPhoneNumber;
-import Frame.Decoration;
-
 import javax.swing.*;
 import java.io.IOException;
 

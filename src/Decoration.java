@@ -1,5 +1,3 @@
-package Frame;
-
 import javax.swing.*;
 import java.awt.*;
 
