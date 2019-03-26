@@ -1,6 +1,8 @@
+package Frame;
+
 import javax.swing.*;
 
-public class FormEnterPhoneNumber {
+public class AuthorizationFormEnterPhoneNumber {
     private JPanel rootPanel;
     private JButton button1;
     private JTextPane TextPainPleaseTipeYourNumber;
@@ -8,7 +10,7 @@ public class FormEnterPhoneNumber {
     private JTextArea a7TextArea;
     private JTextField yourNumberField;
 
-    public FormEnterPhoneNumber ()
+    public AuthorizationFormEnterPhoneNumber()
     {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
     }
