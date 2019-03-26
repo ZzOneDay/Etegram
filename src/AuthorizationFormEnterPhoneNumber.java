@@ -1,19 +1,48 @@
-import javax.swing.*;
+import org.javagram.response.AuthCheckedPhone;
 
-public class AuthorizationFormEnterPhoneNumber {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class AuthorizationFormEnterPhoneNumber extends  Loader{
     private JPanel rootPanel;
-    private JButton button1;
+    private JButton Logo;
     private JTextPane TextPainPleaseTipeYourNumber;
-    private JButton button2;
-    private JTextArea a7TextArea;
+    private JButton LogoPhone;
+    private JTextArea textAreaFirstNumbe;
     private JTextField yourNumberField;
+    private JButton buttonContinue;
+
+    public static String yourNumber;
+
+
+
+
 
     public AuthorizationFormEnterPhoneNumber()
     {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
+        buttonContinue.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (userRegistered)
+                {
+                    //changeForm (sendSmS)
+                }
+                else
+                    {
+                        //changeForm (registering)
+                    }
+            }
+        });
     }
 
-    public JPanel getRootPanelFormEnterPhoneNumber() {
+    public JPanel getRootPanel() {
         return rootPanel;
+    }
+
+    public String getYourNumber()
+    {
+       return yourNumberField.getText();
     }
 }
