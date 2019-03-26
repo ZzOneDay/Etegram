@@ -11,7 +11,7 @@ public class Loader
     static Decoration decoration = new Decoration();
     ;
 
-    static Boolean userRegistered = true;
+    static Boolean userRegistered = false;
 
 
     public static void main(String[] args) throws IOException {
