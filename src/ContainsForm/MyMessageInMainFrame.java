@@ -28,22 +28,13 @@ public class MyMessageInMainFrame {
      * меняется в зависимости от того кто шлет мессадже, в будущем реализовано просто два фрема, мой и его.
      */
 
-    public MyMessageInMainFrame(Boolean myMessage, String textMessage, String timeMessage)
+    public MyMessageInMainFrame(String textMessage, String timeMessage)
     {
         textPaneMyMessage.setText(textMessage);
         textAreaMyTimeMessage.setText(timeMessage);
-
-        //Сообщения от меня
-        if (myMessage)
-        {
-//            rootPanel.setAlignmentX(RIGHT_ALIGNMENT);
-            ImageMessageRigth.setText("R!");
-        }
-        else
-            {
-//                                rootPanel.setAlignmentX(LEFT_ALIGNMENT);
-                ImageMessageLeft.setText("L!");
-            }
-
+    }
+    public String getTextMessage ()
+    {
+        return textPaneMyMessage.getText();
     }
 }

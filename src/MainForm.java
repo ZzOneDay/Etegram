@@ -1,8 +1,11 @@
 import ContainsForm.ContactFormInMainFrame;
 import ContainsForm.MyMessageInMainFrame;
+import ContainsForm.YourMessageInMainFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainForm {
     private JPanel rootPanel;
@@ -12,7 +15,11 @@ public class MainForm {
     private JTextField строкаПоискаTextField;
     private JButton button2;
     private JPanel jPanelContactListForm;
-    private JPanel jPanelMessageList;
+    private JPanel jPanelMessager;
+    private JButton button3;
+    private JPanel ListMessage;
+    private JEditorPane MyEditorPanel;
+    private JScrollBar scrollBar1;
 
     public JPanel getRootPanel() {
         return rootPanel;
@@ -20,7 +27,7 @@ public class MainForm {
 
     MainForm()
     {
-        jPanelMessageList.setLayout(new BoxLayout(jPanelMessageList, BoxLayout.Y_AXIS));
+        jPanelMessager.setLayout(new BoxLayout(jPanelMessager, BoxLayout.Y_AXIS));
 
         ContactFormInMainFrame name1 = new ContactFormInMainFrame("Pavel", "Hello kitty", "3 sec");
         ContactFormInMainFrame name2 = new ContactFormInMainFrame("Kisa", "Hello cool kityy", "12 sec");
@@ -28,18 +35,52 @@ public class MainForm {
         jPanelContactListForm.add(name1.getRootPanel());
         jPanelContactListForm.add(name2.getRootPanel());
 
-        MyMessageInMainFrame testMy = new MyMessageInMainFrame(true,"Hello kitty, this is my messgae, give you money", "30 sec");
-        MyMessageInMainFrame textYou = new MyMessageInMainFrame(false,"Sory bro, i don't have money, i can give you milk", "15 sec");
-//        MyMessageInMainFrame anyText = new MyMessageInMainFrame (true, "Lol", "5 sec");
+        MyMessageInMainFrame myMessageInMainFrame =
+                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
+                        "40 sec ago");
+        YourMessageInMainFrame yourMessageInMainFrame =
+                new YourMessageInMainFrame("Hello, i create my new Elegram, this is TOP messager",
+                        "10 sec ago");
+        MyMessageInMainFrame myMessageInMainFrame1 =
+                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
+                        "40 sec ago");
+        MyMessageInMainFrame myMessageInMainFrame2 =
+                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
+                        "40 sec ago");
+        MyMessageInMainFrame myMessageInMainFrame3 =
+                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
+                        "40 sec ago");
 
-        jPanelMessageList.add(testMy.getRootPanel());
-        jPanelMessageList.add(textYou.getRootPanel());
-//        jPanelMessageList.add(anyText.getRootPanel());
+
+        JPanel AllMessage = new JPanel();
+
+        AllMessage.add(myMessageInMainFrame.getRootPanel());
+        AllMessage.add(myMessageInMainFrame1.getRootPanel());
+        AllMessage.add(myMessageInMainFrame2.getRootPanel());
+        AllMessage.add(myMessageInMainFrame3.getRootPanel());
+        AllMessage.add(yourMessageInMainFrame.getRootPanel());
+
+
+
+        AllMessage.setLayout(new BoxLayout(AllMessage, BoxLayout.Y_AXIS));
+
+        ListMessage.add(new JScrollPane(AllMessage),BorderLayout.CENTER);
+
+
 
 
 
         //планы фиганы
 
         jPanelContactListForm.setLayout(new BoxLayout(jPanelContactListForm, BoxLayout.Y_AXIS));
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MyMessageInMainFrame myText = new MyMessageInMainFrame(MyEditorPanel.getText(),"0 sec");
+                AllMessage.add(myText.getRootPanel());
+                System.out.println(myText.getTextMessage());
+                AllMessage.repaint(); //Перерисовка
+            }
+        });
     }
 }

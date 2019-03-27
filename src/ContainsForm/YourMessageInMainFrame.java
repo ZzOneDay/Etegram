@@ -11,4 +11,15 @@ public class YourMessageInMainFrame {
     private JButton ImageMessageLeft;
     private JPanel panelTimeMessage;
     private JTextArea textAreaMyTimeMessage;
+    private JPanel rootPanel;
+
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
+    public YourMessageInMainFrame(String textMessage, String timeMessage)
+    {
+        textPaneMyMessage.setText(textMessage);
+        textAreaMyTimeMessage.setText(timeMessage);
+    }
 }

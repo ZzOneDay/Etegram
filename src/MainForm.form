@@ -104,13 +104,37 @@
               </grid>
             </children>
           </grid>
-          <grid id="ec762" binding="jPanelMessageList" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="3">
+          <grid id="ec762" binding="jPanelMessager" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
               <splitpane position="right"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <grid id="99a32" binding="ListMessage" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <grid id="19601" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="South"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="6f0e6" class="javax.swing.JButton" binding="button3" default-binding="true">
+                    <constraints border-constraint="East"/>
+                    <properties>
+                      <text value="Button"/>
+                    </properties>
+                  </component>
+                  <component id="6afbd" class="javax.swing.JEditorPane" binding="MyEditorPanel">
+                    <constraints border-constraint="Center"/>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+            </children>
           </grid>
         </children>
       </splitpane>
