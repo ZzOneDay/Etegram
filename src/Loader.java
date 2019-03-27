@@ -1,4 +1,5 @@
 import ContainsForm.ContactFormInMainFrame;
+import ContainsForm.MyMessageInMainFrame;
 import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 

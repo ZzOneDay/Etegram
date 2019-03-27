@@ -54,7 +54,7 @@
       <splitpane id="3c9b7">
         <constraints border-constraint="Center"/>
         <properties>
-          <dividerLocation value="300"/>
+          <dividerLocation value="200"/>
           <dividerSize value="10"/>
           <lastDividerLocation value="300"/>
         </properties>
@@ -104,7 +104,7 @@
               </grid>
             </children>
           </grid>
-          <grid id="ec762" binding="jPanelMessageList" layout-manager="BorderLayout" hgap="0" vgap="0">
+          <grid id="ec762" binding="jPanelMessageList" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="3">
             <constraints>
               <splitpane position="right"/>
             </constraints>
