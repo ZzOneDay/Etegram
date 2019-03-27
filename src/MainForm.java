@@ -24,6 +24,8 @@ public class MainForm {
         jPanelContactListForm.add(name1.getRootPanel());
         jPanelContactListForm.add(name2.getRootPanel());
 
+        //планы фиганы
+
         jPanelContactListForm.setLayout(new BoxLayout(jPanelContactListForm, BoxLayout.Y_AXIS));
     }
 }
