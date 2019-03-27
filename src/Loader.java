@@ -1,3 +1,4 @@
+import ContainsForm.ContactFormInMainFrame;
 import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 
@@ -15,18 +16,21 @@ public class Loader {
 
 
     public static void main(String[] args) throws IOException {
-        bridge = new TelegramApiBridge(
-                "149.154.167.50:443",
-                692111,
-                "80b53f81bb56fd854742600678fd27ad");
+//        bridge = new TelegramApiBridge(
+//                "149.154.167.50:443",
+//                692111,
+//                "80b53f81bb56fd854742600678fd27ad");
+//
+//
+//        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
 
 
-        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+        MainForm mainForm = new MainForm();
 
         jFrame.setSize(800, 600);
         jFrame.setUndecorated(true);
         jFrame.setContentPane(decoration.getRootPanel());
-        decoration.setContentPanel(formEnterPhoneNumber.getRootPanel());
+        decoration.setContentPanel(mainForm.getRootPanel()); //formEnterPhoneNumber
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }
