@@ -1,7 +1,9 @@
 import ContainsForm.ContactFormInMainFrame;
 import ContainsForm.MyMessageInMainFrame;
 import org.javagram.TelegramApiBridge;
+import org.javagram.response.AuthAuthorization;
 import org.javagram.response.AuthCheckedPhone;
+import org.javagram.response.AuthSentCode;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -26,12 +28,12 @@ public class Loader {
 //        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
 
 
-        MainForm mainForm = new MainForm();
+        AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
 
         jFrame.setSize(800, 600);
         jFrame.setUndecorated(true);
         jFrame.setContentPane(decoration.getRootPanel());
-        decoration.setContentPanel(mainForm.getRootPanel()); //formEnterPhoneNumber
+        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel()); //formEnterPhoneNumber
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }
@@ -42,7 +44,31 @@ public class Loader {
         //проверка б номера сюда
         AuthCheckedPhone checkedPhone = bridge.authCheckPhone(string.trim().replaceAll("[^0-9]+", ""));
         userRegistered = checkedPhone.isRegistered();
+        //указать бы чтобы понимать что к чему по итоге;
     }
+
+    public void sentCode(String string) throws IOException {
+        AuthSentCode sentCode = bridge.authSendCode(string.trim().replaceAll("[^0-9]+", ""));
+        //Такое же бы указать а то хз
+    }
+
+    public void AuthAuthorization (String string) throws IOException {
+
+        AuthAuthorization authAuthorization = bridge.authSignIn(string.trim().replaceAll("[^0-9]+", ""));
+        System.out.println(authAuthorization);
+    }
+
+    /**
+     * Нужно сделать, чтобы программа, после отправки смс, переходила в Ввод СМС кода,
+     * и прописать метод, авториазации, и перехода в майн окно.
+     * если выебываться по максимальному, нужно сделать чтобы сбоку список появился
+     * ну хуль раз уж пошло на то, то и диологи открывать
+     * да в пизду, короче можно реализовать чтобы можно было отправлять кому нибудь сообщения и получать, сук работать будет
+     * но ебать как криво, похуй.
+     */
+
+
+
 //
 //    ---------------------------------------------------------------
 //        System.out.println(checkedPhone.isRegistered());

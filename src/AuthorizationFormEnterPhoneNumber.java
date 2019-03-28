@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class AuthorizationFormEnterPhoneNumber extends  Loader{
     private JPanel rootPanel;
@@ -34,12 +35,20 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
                 if (userRegistered)
                 {
                     //changeForm (sendSmS)
+                    try {
+                        sentCode(getYourNumber());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                    System.out.println("userRegistered" + userRegistered);
                     AuthorizationFormEnterSMSCode authorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
                     decoration.setContentPanel(authorizationFormEnterSMSCode.getRootPanel());
+
                 }
                 else
                     {
                         //changeForm (registering)
+                        System.out.println("userRegistered" + userRegistered);
                         AuthorizationFormRegistration authorizationFormRegistration = new AuthorizationFormRegistration();
                         decoration.setContentPanel(authorizationFormRegistration.getRoolPanel());
 
