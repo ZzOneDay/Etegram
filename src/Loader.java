@@ -19,16 +19,17 @@ public class Loader {
 
 
     public static void main(String[] args) throws IOException {
-//        bridge = new TelegramApiBridge(
-//                "149.154.167.50:443",
-//                692111,
-//                "80b53f81bb56fd854742600678fd27ad");
+        bridge = new TelegramApiBridge(
+                "149.154.167.50:443",
+                692111,
+                "80b53f81bb56fd854742600678fd27ad");
 //
 //
 //        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
 
 
         AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+
 
         jFrame.setSize(800, 600);
         jFrame.setUndecorated(true);
@@ -47,9 +48,10 @@ public class Loader {
         //указать бы чтобы понимать что к чему по итоге;
     }
 
-    public void sentCode(String string) throws IOException {
+    public Boolean sentCode(String string) throws IOException {
         AuthSentCode sentCode = bridge.authSendCode(string.trim().replaceAll("[^0-9]+", ""));
         //Такое же бы указать а то хз
+        return sentCode.isRegistered();
     }
 
     public void AuthAuthorization (String string) throws IOException {

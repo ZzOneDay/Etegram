@@ -27,6 +27,7 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
         buttonContinue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Можно переделать, чтобы return от checkPhone был boolean
                 try {
                     checkedPhone(getYourNumber());
                 } catch (IOException e1) {
