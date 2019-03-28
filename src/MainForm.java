@@ -13,7 +13,7 @@ public class MainForm {
     JTextField TextFieldToFind;
     JButton button2;
     private JPanel jPanelContactListForm;
-    private JPanel jPanelMessager;
+    private JPanel jPanelMessage;
     private JButton button3;
     private JPanel ListMessage;
     private JEditorPane MyEditorPanel;
@@ -24,9 +24,8 @@ public class MainForm {
         return rootPanel;
     }
 
-    MainForm()
-    {
-        jPanelMessager.setLayout(new BoxLayout(jPanelMessager, BoxLayout.Y_AXIS));
+    MainForm() {
+        jPanelMessage.setLayout(new BoxLayout(jPanelMessage, BoxLayout.Y_AXIS));
 
         ContactFormInMainFrame name1 = new ContactFormInMainFrame("Pavel", "Hello kitty", "3 sec");
         ContactFormInMainFrame name2 = new ContactFormInMainFrame("Kisa", "Hello cool kityy", "12 sec");
@@ -60,20 +59,16 @@ public class MainForm {
         AllMessage.add(yourMessageInMainFrame.getRootPanel());
 
 
-
         AllMessage.setLayout(new BoxLayout(AllMessage, BoxLayout.Y_AXIS));
 
-        ListMessage.add(new JScrollPane(AllMessage),BorderLayout.CENTER);
-
-
-
+        ListMessage.add(new JScrollPane(AllMessage), BorderLayout.CENTER);
 
 
         //планы фиганы
 
         jPanelContactListForm.setLayout(new BoxLayout(jPanelContactListForm, BoxLayout.Y_AXIS));
         button3.addActionListener(e -> {
-            MyMessageInMainFrame myText = new MyMessageInMainFrame(MyEditorPanel.getText(),"0 sec");
+            MyMessageInMainFrame myText = new MyMessageInMainFrame(MyEditorPanel.getText(), "0 sec");
             AllMessage.add(myText.getRootPanel());
             System.out.println(myText.getTextMessage());
             AllMessage.repaint(); //Перерисовка
