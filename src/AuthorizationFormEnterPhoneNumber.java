@@ -37,6 +37,7 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
                 {
                     //changeForm (sendSmS)
                     try {
+                        System.out.println("MyNumber" + getYourNumber());
                         sentCode(getYourNumber());
                     } catch (IOException e1) {
                         e1.printStackTrace();

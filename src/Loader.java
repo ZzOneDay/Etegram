@@ -7,6 +7,7 @@ import org.javagram.response.AuthSentCode;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class Loader {
     static JFrame jFrame = new JFrame();
@@ -16,6 +17,8 @@ public class Loader {
     static Boolean userRegistered;
 
     static TelegramApiBridge bridge;
+
+    static AuthAuthorization authAuthorization;
 
 
     public static void main(String[] args) throws IOException {
@@ -29,6 +32,7 @@ public class Loader {
 
 
         AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
+//        AuthorizationFormEnterSMSCode AuthorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
 
 
         jFrame.setSize(800, 600);
@@ -48,16 +52,13 @@ public class Loader {
         //указать бы чтобы понимать что к чему по итоге;
     }
 
-    public Boolean sentCode(String string) throws IOException {
-        AuthSentCode sentCode = bridge.authSendCode(string.trim().replaceAll("[^0-9]+", ""));
-        //Такое же бы указать а то хз
-        return sentCode.isRegistered();
+    public void sentCode(String string) throws IOException {
+        bridge.authSendCode(string.trim().replaceAll("[^0-9]+", ""));
     }
 
-    public void AuthAuthorization (String string) throws IOException {
+    public void AuthAuthorization (String SMSCode) throws IOException {
 
-        AuthAuthorization authAuthorization = bridge.authSignIn(string.trim().replaceAll("[^0-9]+", ""));
-        System.out.println(authAuthorization);
+        bridge.authSignIn(SMSCode.trim().replaceAll("[^0-9]+", ""));
     }
 
     /**

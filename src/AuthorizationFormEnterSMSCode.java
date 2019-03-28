@@ -21,21 +21,33 @@ public class AuthorizationFormEnterSMSCode extends Loader{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Boolean smsCodeTrue = false;
+
+                String password = String.valueOf(passwordField1.getPassword());
+
+
                 try {
-                    //if код верный то true
-                    smsCodeTrue = sentCode(String.valueOf(passwordField1.getPassword()));
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-                System.out.println("smsCodeTrue" + smsCodeTrue);
-                if (smsCodeTrue)
-                {
+                    //Вводим код чтобы авторизоваться
+                    AuthAuthorization(password);
                     System.out.println("go to main");
                     MainForm mainForm = new MainForm();
                     decoration.setContentPanel(mainForm.getRootPanel());
-                }
-                else
+
+                } catch (IOException e1) {
                     System.out.println("Код неверный");
+                    e1.printStackTrace();
+                }
+
+                System.out.println("SMS CODE BY STRING " + password );
+                System.out.println("smsCodeTrue " + smsCodeTrue);
+
+//                if (smsCodeTrue)
+//                {
+//                    System.out.println("go to main");
+//                    MainForm mainForm = new MainForm();
+//                    decoration.setContentPanel(mainForm.getRootPanel());
+//                }
+//                else
+//                    System.out.println("Код неверный");
 
             }
         });
