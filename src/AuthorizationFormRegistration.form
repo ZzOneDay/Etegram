@@ -33,7 +33,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="92960" class="javax.swing.JTextPane" binding="TextPainPleaseTipeYourNumber">
+          <component id="92960" class="javax.swing.JTextPane" binding="TextPainPleaseTypeYourFullNName">
             <constraints border-constraint="Center"/>
             <properties>
               <text value="Для завершения регистрации, укажите ваше Имя и Фамилию"/>

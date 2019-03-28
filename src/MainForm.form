@@ -79,7 +79,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="1ebe3" class="javax.swing.JTextField" binding="строкаПоискаTextField" default-binding="true">
+                  <component id="1ebe3" class="javax.swing.JTextField" binding="TextFieldToFind">
                     <constraints/>
                     <properties>
                       <text value="Строка поиска"/>

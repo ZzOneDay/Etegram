@@ -50,7 +50,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="bcaa6" class="javax.swing.JTextPane" binding="TextPainPleaseTipeYourNumber">
+          <component id="bcaa6" class="javax.swing.JTextPane" binding="TextPainPleaseTypeYourNumber">
             <constraints border-constraint="Center"/>
             <properties>
               <text value="На данный номер телефона был отправлен код авторизации, укажите его в поле ниже"/>

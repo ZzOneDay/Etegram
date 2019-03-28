@@ -1,24 +1,13 @@
-import ContainsForm.ContactFormInMainFrame;
-import ContainsForm.MyMessageInMainFrame;
 import org.javagram.TelegramApiBridge;
-import org.javagram.response.AuthAuthorization;
 import org.javagram.response.AuthCheckedPhone;
-import org.javagram.response.AuthSentCode;
-
 import javax.swing.*;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 public class Loader {
     static JFrame jFrame = new JFrame();
     static Decoration decoration = new Decoration();
-    ;
-
     static Boolean userRegistered;
-
-    static TelegramApiBridge bridge;
-
-    static AuthAuthorization authAuthorization;
+    private static TelegramApiBridge bridge;
 
 
     public static void main(String[] args) throws IOException {
@@ -26,14 +15,8 @@ public class Loader {
                 "149.154.167.50:443",
                 692111,
                 "80b53f81bb56fd854742600678fd27ad");
-//
-//
-//        AuthorizationFormEnterPhoneNumber formEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
-
 
         AuthorizationFormEnterPhoneNumber authorizationFormEnterPhoneNumber = new AuthorizationFormEnterPhoneNumber();
-//        AuthorizationFormEnterSMSCode AuthorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
-
 
         jFrame.setSize(800, 600);
         jFrame.setUndecorated(true);
@@ -43,7 +26,7 @@ public class Loader {
         jFrame.setVisible(true);
     }
 
-    public void checkedPhone(String string) throws IOException {
+    void checkedRegisteredUserByPhone(String string) throws IOException {
         userRegistered = false;
         System.out.println("Проверка номера:" + string);
         //проверка б номера сюда
@@ -52,24 +35,14 @@ public class Loader {
         //указать бы чтобы понимать что к чему по итоге;
     }
 
-    public void sentCode(String string) throws IOException {
+    void sentCodeToThisNumber(String string) throws IOException {
         bridge.authSendCode(string.trim().replaceAll("[^0-9]+", ""));
     }
 
-    public void AuthAuthorization (String SMSCode) throws IOException {
+    void authAuthorizationBySMSCode(String SMSCode) throws IOException {
 
         bridge.authSignIn(SMSCode.trim().replaceAll("[^0-9]+", ""));
     }
-
-    /**
-     * Нужно сделать, чтобы программа, после отправки смс, переходила в Ввод СМС кода,
-     * и прописать метод, авториазации, и перехода в майн окно.
-     * если выебываться по максимальному, нужно сделать чтобы сбоку список появился
-     * ну хуль раз уж пошло на то, то и диологи открывать
-     * да в пизду, короче можно реализовать чтобы можно было отправлять кому нибудь сообщения и получать, сук работать будет
-     * но ебать как криво, похуй.
-     */
-
 
 
 //

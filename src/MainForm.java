@@ -4,22 +4,21 @@ import ContainsForm.YourMessageInMainFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainForm {
     private JPanel rootPanel;
-    private JButton button1;
-    private JTextArea textAreaMyNameFull;
-    private JButton Image;
-    private JTextField строкаПоискаTextField;
-    private JButton button2;
+    JButton button1;
+    JTextArea textAreaMyNameFull;
+    JButton Image;
+    JTextField TextFieldToFind;
+    JButton button2;
     private JPanel jPanelContactListForm;
     private JPanel jPanelMessager;
     private JButton button3;
     private JPanel ListMessage;
     private JEditorPane MyEditorPanel;
-    private JScrollBar scrollBar1;
+
+    //Пока, здесь все очень тестово
 
     public JPanel getRootPanel() {
         return rootPanel;
@@ -73,14 +72,11 @@ public class MainForm {
         //планы фиганы
 
         jPanelContactListForm.setLayout(new BoxLayout(jPanelContactListForm, BoxLayout.Y_AXIS));
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MyMessageInMainFrame myText = new MyMessageInMainFrame(MyEditorPanel.getText(),"0 sec");
-                AllMessage.add(myText.getRootPanel());
-                System.out.println(myText.getTextMessage());
-                AllMessage.repaint(); //Перерисовка
-            }
+        button3.addActionListener(e -> {
+            MyMessageInMainFrame myText = new MyMessageInMainFrame(MyEditorPanel.getText(),"0 sec");
+            AllMessage.add(myText.getRootPanel());
+            System.out.println(myText.getTextMessage());
+            AllMessage.repaint(); //Перерисовка
         });
     }
 }

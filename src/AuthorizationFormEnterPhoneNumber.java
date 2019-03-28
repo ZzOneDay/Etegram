@@ -1,62 +1,58 @@
-import org.javagram.response.AuthCheckedPhone;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
-public class AuthorizationFormEnterPhoneNumber extends  Loader{
+public class AuthorizationFormEnterPhoneNumber extends Loader {
     private JPanel rootPanel;
-    private JButton Logo;
-    private JTextPane TextPainPleaseTipeYourNumber;
-    private JButton LogoPhone;
-    private JTextArea textAreaFirstNumbe;
+    JButton Logo;
+    JTextPane TextPainPleaseTypeYourNumber;
+    JButton LogoPhone;
+    private JTextArea textAreaFirstCharNumber;
     private JTextField yourNumberField;
     private JButton buttonContinue;
 
-    public static String yourNumber;
+    static String yourNumber;
 
 
-
-
-
-    public AuthorizationFormEnterPhoneNumber()
-    {
+    AuthorizationFormEnterPhoneNumber() {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
-        buttonContinue.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Можно переделать, чтобы return от checkPhone был boolean
+        buttonContinue.addActionListener(e -> {
+            try {
+                checkedRegisteredUserByPhone(getYourNumber());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            if (userRegistered) {
+                //changeForm (sendSmS)
                 try {
-                    checkedPhone(getYourNumber());
+                    System.out.println("MyNumber" + getYourNumber());
+                    sentCodeToThisNumber(getYourNumber());
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
-                if (userRegistered)
-                {
-                    //changeForm (sendSmS)
-                    try {
-                        System.out.println("MyNumber" + getYourNumber());
-                        sentCode(getYourNumber());
-                    } catch (IOException e1) {
-                        e1.printStackTrace();
-                    }
-                    System.out.println("userRegistered" + userRegistered);
-                    AuthorizationFormEnterSMSCode authorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
-                    decoration.setContentPanel(authorizationFormEnterSMSCode.getRootPanel());
+                System.out.println("userRegistered" + userRegistered);
+                AuthorizationFormEnterSMSCode authorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
+                decoration.setContentPanel(authorizationFormEnterSMSCode.getRootPanel());
 
-                }
-                else
-                    {
-                        //changeForm (registering)
-                        System.out.println("userRegistered" + userRegistered);
-                        AuthorizationFormRegistration authorizationFormRegistration = new AuthorizationFormRegistration();
-                        decoration.setContentPanel(authorizationFormRegistration.getRoolPanel());
-
-
-                    }
+            } else {
+                //changeForm (registering)
+                System.out.println("userRegistered" + userRegistered);
+                AuthorizationFormRegistration authorizationFormRegistration = new AuthorizationFormRegistration();
+                decoration.setContentPanel(authorizationFormRegistration.getRootPanel());
             }
+            //Должно работать,
+//                try {
+//                    checkedRegisteredUserByPhone(getYourNumber());
+//                sentCodeToThisNumber(getYourNumber());
+            //                    AuthorizationFormEnterSMSCode authorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
+//                    decoration.setContentPanel(authorizationFormEnterSMSCode.getRootPanel());
+//                } catch (IOException e1) {
+//                    e1.printStackTrace();
+//                    //changeForm (registering)
+//                    System.out.println("userRegistered" + userRegistered);
+//                    AuthorizationFormRegistration authorizationFormRegistration = new AuthorizationFormRegistration();
+//                    decoration.setContentPanel(authorizationFormRegistration.getRootPanel());
+//                }
+
         });
     }
 
@@ -64,8 +60,7 @@ public class AuthorizationFormEnterPhoneNumber extends  Loader{
         return rootPanel;
     }
 
-    public String getYourNumber()
-    {
-       return textAreaFirstNumbe.getText() + yourNumberField.getText();
+    private String getYourNumber() {
+        return textAreaFirstCharNumber.getText() + yourNumberField.getText();
     }
 }

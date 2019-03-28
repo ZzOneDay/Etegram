@@ -19,21 +19,16 @@ public class Decoration {
         contentPanel.repaint(); //Перерисовка
     }
 
-    private void minimizeApp ()
-    {
+    private void minimizeApp() {
         Loader.jFrame.setState(JFrame.ICONIFIED);
     }
 
-    private void closeApp()
-    {
+    private void closeApp() {
         Loader.jFrame.dispose();
     }
 
-
-
-
     JPanel getRootPanel() {
-    return rootPanel;
-}
+        return rootPanel;
+    }
 
 }
