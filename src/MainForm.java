@@ -35,20 +35,11 @@ public class MainForm extends Loader {
         YourMessageInMainFrame yourMessageInMainFrame =
                 new YourMessageInMainFrame("Hello, i create my new Elegram, this is TOP messager",
                         "10 sec ago");
-        MyMessageInMainFrame myMessageInMainFrame1 =
-                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
-                        "40 sec ago");
-        MyMessageInMainFrame myMessageInMainFrame2 =
-                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
-                        "40 sec ago");
-        MyMessageInMainFrame myMessageInMainFrame3 =
-                new MyMessageInMainFrame("Hello my Friend, What are you Doing",
-                        "40 sec ago");
 
 
         JPanel AllMessage = new JPanel();
         AllMessage.setLayout(new BoxLayout(AllMessage, BoxLayout.Y_AXIS));
-        AllMessage.add(myMessageInMainFrame3.getRootPanel());
+        AllMessage.add(myMessageInMainFrame.getRootPanel());
         AllMessage.add(yourMessageInMainFrame.getRootPanel());
         ListMessage.add(new JScrollPane(AllMessage), BorderLayout.CENTER);
 
@@ -56,42 +47,28 @@ public class MainForm extends Loader {
         JPanel ContactList = new JPanel();
         ContactList.setLayout(new BoxLayout(ContactList, BoxLayout.Y_AXIS));
         ArrayList contactsList = bridge.contactsGetContacts();
-        ArrayList lastMessageList = bridge.messagesRecievedMessages(10);
-//        for (int i = 0; i < (contactsList.size() - 1); i++) {
-//            System.out.println(contactsList.get(i));
+//        ArrayList lastMessageList = bridge.messagesRecievedMessages(10);
+
+        String one = contactsList.get(0).toString();
+        System.out.println(one);
 
 
+        int i = 0;
+        while (i < contactsList.size()) {
 
-        for (int i = 0; i <= bridge.contactsGetContacts().size()-1; i++)
-        {
-
-            String fullName = (String) contactsList.get(i);
-            String lastMessage = (String) lastMessageList.get(i);
+            String fullName = contactsList.get(i).toString();
+            String lastMessage = "Hello";
 //            int lastOnline = bridge.contactsGetStatuses().get(i).getExpires();
             String stringLastOnline = "sec";
-            boolean statusContact = true; //bridge.contactsGetContacts().get(i).isOnline();
-            ContactFormInMainFrame contact = new ContactFormInMainFrame(fullName,lastMessage,stringLastOnline,statusContact);
+//            boolean statusContact = bridge.contactsGetContacts().get(i).isOnline();
+            ContactFormInMainFrame contact = new ContactFormInMainFrame(fullName,lastMessage,stringLastOnline,true);
             ContactList.add(contact.getRootPanel()); //
-            System.out.println("Hello");
+            System.out.println("Create contactJPanel " + fullName);
+            i++;
         }
 
         jPanelContactListForm.add(new JScrollPane(ContactList),BorderLayout.CENTER);
-
-
-
-
-
-
-
-
-
-
-
-
-        //планы фиганы
-
         jPanelContactListForm.setLayout(new BoxLayout(jPanelContactListForm, BoxLayout.Y_AXIS));
-
 
 
         button3.addActionListener(e -> {

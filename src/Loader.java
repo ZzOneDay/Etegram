@@ -7,7 +7,7 @@ public class Loader {
     static JFrame jFrame = new JFrame();
     static Decoration decoration = new Decoration();
     static Boolean userRegistered;
-    protected static TelegramApiBridge bridge;
+    static TelegramApiBridge bridge;
 
 
     public static void main(String[] args) throws IOException {
