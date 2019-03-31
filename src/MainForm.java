@@ -72,6 +72,7 @@ public class MainForm extends Loader {
             boolean statusContact = true; //bridge.contactsGetContacts().get(i).isOnline();
             ContactFormInMainFrame contact = new ContactFormInMainFrame(fullName,lastMessage,stringLastOnline,statusContact);
             ContactList.add(contact.getRootPanel()); //
+            System.out.println("Hello");
         }
 
         jPanelContactListForm.add(new JScrollPane(ContactList),BorderLayout.CENTER);
