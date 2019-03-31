@@ -68,7 +68,7 @@ public class MainForm extends Loader {
             String stringLastOnline = lastOnline + "sec";
             boolean statusContact = bridge.contactsGetContacts().get(i).isOnline();
             ContactFormInMainFrame contact = new ContactFormInMainFrame(fullName,lastMessage,stringLastOnline,statusContact);
-            ContactList.add(contact.getRootPanel());
+            ContactList.add(contact.getRootPanel()); //
         }
 
         jPanelContactListForm.add(new JScrollPane(ContactList),BorderLayout.CENTER);
