@@ -7,7 +7,7 @@ public class Loader {
     static JFrame jFrame = new JFrame();
     static Decoration decoration = new Decoration();
     static Boolean userRegistered;
-    private static TelegramApiBridge bridge;
+    protected static TelegramApiBridge bridge;
 
 
     public static void main(String[] args) throws IOException {
@@ -24,6 +24,7 @@ public class Loader {
         decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel()); //formEnterPhoneNumber
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
+
     }
 
     void checkedRegisteredUserByPhone(String string) throws IOException {
@@ -43,6 +44,7 @@ public class Loader {
 
         bridge.authSignIn(SMSCode.trim().replaceAll("[^0-9]+", ""));
     }
+
 
 
 //
