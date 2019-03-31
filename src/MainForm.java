@@ -55,18 +55,21 @@ public class MainForm extends Loader {
 
         JPanel ContactList = new JPanel();
         ContactList.setLayout(new BoxLayout(ContactList, BoxLayout.Y_AXIS));
+        ArrayList contactsList = bridge.contactsGetContacts();
+        ArrayList lastMessageList = bridge.messagesRecievedMessages(10);
+//        for (int i = 0; i < (contactsList.size() - 1); i++) {
+//            System.out.println(contactsList.get(i));
 
 
 
-        for (int i = 0; i <= bridge.contactsGetContacts().size(); i++)
+        for (int i = 0; i <= bridge.contactsGetContacts().size()-1; i++)
         {
-            String firstName = bridge.contactsGetContacts().get(i).getFirstName();
-            String lastName = bridge.contactsGetContacts().get(i).getLastName();
-            String fullName = firstName + " " + lastName;
-            String lastMessage = bridge.messagesRecievedMessages(10).get(i).getMessage();
-            int lastOnline = bridge.contactsGetStatuses().get(i).getExpires();
-            String stringLastOnline = lastOnline + "sec";
-            boolean statusContact = bridge.contactsGetContacts().get(i).isOnline();
+
+            String fullName = (String) contactsList.get(i);
+            String lastMessage = (String) lastMessageList.get(i);
+//            int lastOnline = bridge.contactsGetStatuses().get(i).getExpires();
+            String stringLastOnline = "sec";
+            boolean statusContact = true; //bridge.contactsGetContacts().get(i).isOnline();
             ContactFormInMainFrame contact = new ContactFormInMainFrame(fullName,lastMessage,stringLastOnline,statusContact);
             ContactList.add(contact.getRootPanel()); //
         }
