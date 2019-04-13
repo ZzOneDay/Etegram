@@ -2,10 +2,8 @@ package com.zzoneday.etegram.authorization;
 
 import javax.swing.*;
 
-public interface AuthorizationForm {
+public interface authorization {
 
     JPanel getRootPanel();
-
-//    void changeJPanel (boolean b);
 
 }

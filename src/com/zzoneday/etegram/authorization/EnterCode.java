@@ -1,35 +1,35 @@
 package com.zzoneday.etegram.authorization;
 
+import com.zzoneday.etegram.Education;
+
 import javax.swing.*;
 import java.io.IOException;
 
-public class AuthorizationFormEnterSMSCode extends Loader {
+public class EnterCode extends Education implements authorization {
     JButton Logo;
     JTextPane TextPainPleaseTypeYourNumber;
     JButton LogoBlock;
     private JButton buttonContinue;
     private JPanel rootPanel;
-    private JTextArea textAreaYouNumberString;
+    private JTextArea textByEnteredNumber;
     private JPasswordField passwordField1;
 
-    AuthorizationFormEnterSMSCode() {
+    EnterCode() {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
-        textAreaYouNumberString.setText(AuthorizationFormEnterPhoneNumber.yourNumber);
+        textByEnteredNumber.setText(EnterPhoneNumber.yourNumber);
         buttonContinue.addActionListener(e -> {
 
 
             //Безопасность на высоте
-            String password = String.valueOf(passwordField1.getPassword());
+            String code = String.valueOf(passwordField1.getPassword());
 
             try {
                 //Вводим код чтобы авторизоваться
-                authAuthorizationBySMSCode(password);
-                System.out.println("go to main");
-                MainForm mainForm = new MainForm();
-                Loader.decoration.setContentPanel(mainForm.getRootPanel());
+                education.authorizationUserByCode(code);
+                System.out.println("Проверка кода - Ок");
 
             } catch (IOException e1) {
-                System.out.println("Код неверный");
+                System.out.println("Проверка кода - Ошибка");
                 e1.printStackTrace();
             }
         });

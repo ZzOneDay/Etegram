@@ -5,7 +5,7 @@ import com.zzoneday.etegram.Education;
 import javax.swing.*;
 import java.io.IOException;
 
-public class AuthorizationFormEnterPhoneNumber implements AuthorizationForm {
+public class EnterPhoneNumber extends Education implements authorization {
     private JPanel rootPanel;
     JButton Logo;
     JTextPane TextPainPleaseTypeYourNumber;
@@ -15,34 +15,27 @@ public class AuthorizationFormEnterPhoneNumber implements AuthorizationForm {
     private JButton buttonContinue;
 
     static String yourNumber;
-    private boolean userIsRegistered;
 
 
-    public AuthorizationFormEnterPhoneNumber() {
-        Education education = new Education();
+    public EnterPhoneNumber() {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         buttonContinue.addActionListener(e -> {
-            try {
-                userIsRegistered = education.checkedRegisteredUserByPhone(getEnteredNumber());
-            } catch (IOException ex) {
-                System.out.println("Номер не зарегистрирован");
-                ex.printStackTrace();
-            }
-        });
-        if (userIsRegistered) {
+            checkedRegisteredUserByPhone(getEnteredNumber());
+        if (education.getResultUserIsRegistered()) {
             try {
                 education.sentCodeToThisNumber(getEnteredNumber());
             } catch (IOException e1) {
                 System.out.println("Не удалось отправить номер");
                 e1.printStackTrace();
             }
-            AuthorizationFormEnterSMSCode authorizationFormEnterSMSCode = new AuthorizationFormEnterSMSCode();
+            EnterCode authorizationFormEnterSMSCode = new EnterCode();
             education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
 
         } else {
-            AuthorizationFormRegistration authorizationFormRegistration = new AuthorizationFormRegistration();
+            Registration authorizationFormRegistration = new Registration();
             education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
         }
+    });
 
     }
 
@@ -52,7 +45,8 @@ public class AuthorizationFormEnterPhoneNumber implements AuthorizationForm {
 
 
     private String getEnteredNumber() {
+        System.out.println(textAreaFirstCharNumber.getText() + yourNumberField.getText());
         return textAreaFirstCharNumber.getText() + yourNumberField.getText();
     }
 
-}
+    }

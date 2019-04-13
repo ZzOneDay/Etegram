@@ -1,4 +1,4 @@
-package ContainsForm;
+package com.zzoneday.etegram.main.contact;
 
 import javax.swing.*;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zzoneday.etegram.authorization.AuthorizationFormEnterSMSCode">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zzoneday.etegram.authorization.EnterCode">
   <grid id="27dc6" binding="rootPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
     <constraints>
       <xy x="20" y="20" width="1280" height="400"/>
@@ -33,12 +33,24 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="67b72" class="javax.swing.JTextArea" binding="textAreaYouNumberString">
+          <component id="67b72" class="javax.swing.JTextArea" binding="textByEnteredNumber">
             <constraints/>
             <properties>
               <text value="89117079229"/>
             </properties>
           </component>
+          <component id="d30b3" class="javax.swing.JLabel">
+            <constraints/>
+            <properties>
+              <text value="Label"/>
+            </properties>
+          </component>
+          <scrollpane id="3bb02">
+            <constraints/>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </scrollpane>
         </children>
       </grid>
       <grid id="85ce6" layout-manager="BorderLayout" hgap="0" vgap="0">

@@ -1,12 +1,6 @@
-package ContainsForm;
+package com.zzoneday.etegram.main.contact;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-
-import static java.awt.BorderLayout.EAST;
-import static java.awt.Component.LEFT_ALIGNMENT;
-import static java.awt.Component.RIGHT_ALIGNMENT;
 
 public class MyMessageInMainFrame {
     private JPanel rootPanel;

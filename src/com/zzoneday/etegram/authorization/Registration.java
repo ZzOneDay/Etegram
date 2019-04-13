@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class AuthorizationFormRegistration {
+public class Registration {
     JButton Logo;
     JTextPane TextPainPleaseTypeYourFullNName;
     JButton buttonContinue;
@@ -12,7 +12,7 @@ public class AuthorizationFormRegistration {
     private JTextField textFieldRegistrationFamily;
     JPanel rootPanel;
 
-    AuthorizationFormRegistration() {
+    Registration() {
         setTextFieldHelp(textFieldRegistrationName, textFieldRegistrationName.getText());
         setTextFieldHelp(textFieldRegistrationFamily, textFieldRegistrationFamily.getText());
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));

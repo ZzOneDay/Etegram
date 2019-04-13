@@ -1,21 +1,12 @@
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.Decoration;
-import org.javagram.TelegramApiBridge;
 
-import javax.swing.*;
-import java.io.IOException;
+public class Loader extends Education {
 
-public class Loader {
-    static JFrame jFrame = new JFrame();
-    static Decoration decoration = new Decoration(jFrame);
-    static Boolean userRegistered;
-    static TelegramApiBridge bridge;
+    public static void main(String[] args) {
 
-
-    public static void main(String[] args) throws IOException {
-
-        Education education = new Education(bridge);
         education.startProgram();
+//        education.startTestProgram();
+
     }
 
 
