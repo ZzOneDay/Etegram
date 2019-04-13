@@ -1,3 +1,5 @@
+package com.zzoneday.etegram.authorization;
+
 import javax.swing.*;
 import java.io.IOException;
 
@@ -24,7 +26,7 @@ public class AuthorizationFormEnterSMSCode extends Loader {
                 authAuthorizationBySMSCode(password);
                 System.out.println("go to main");
                 MainForm mainForm = new MainForm();
-                decoration.setContentPanel(mainForm.getRootPanel());
+                Loader.decoration.setContentPanel(mainForm.getRootPanel());
 
             } catch (IOException e1) {
                 System.out.println("Код неверный");

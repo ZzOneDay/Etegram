@@ -1,3 +1,5 @@
+package com.zzoneday.etegram;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -6,13 +8,15 @@ public class Decoration {
     private JButton closeButton;
     private JPanel rootPanel;
     private JPanel contentPanel;
+    private JFrame jFrame;
 
-    Decoration() {
+    public Decoration(JFrame jFrame) {
+        this.jFrame = jFrame;
         closeButton.addActionListener(e -> closeApp());
         minimizeButton.addActionListener(e -> minimizeApp());
     }
 
-    void setContentPanel(Component component) {
+    public void setContentPanel(Component component) {
         contentPanel.removeAll(); //Очищаем
         contentPanel.add(component);
         contentPanel.revalidate(); //Растягивает
@@ -20,14 +24,14 @@ public class Decoration {
     }
 
     private void minimizeApp() {
-        Loader.jFrame.setState(JFrame.ICONIFIED);
+        jFrame.setState(JFrame.ICONIFIED);
     }
 
     private void closeApp() {
-        Loader.jFrame.dispose();
+        jFrame.dispose();
     }
 
-    JPanel getRootPanel() {
+    public JPanel getRootPanel() {
         return rootPanel;
     }
 
