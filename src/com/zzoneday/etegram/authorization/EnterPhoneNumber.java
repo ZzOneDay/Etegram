@@ -18,22 +18,21 @@ public class EnterPhoneNumber implements authorization {
 
 
     public EnterPhoneNumber() {
-        Education education = new Education();
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         buttonContinue.addActionListener(e -> {
-            if (education.getResultUserIsRegistered(getEnteredNumber())) {
+            if (Education.getResultUserIsRegistered(getEnteredNumber())) {
                 try {
-                    education.sentCodeToThisNumber(getEnteredNumber());
+                    Education.sentCodeToThisNumber(getEnteredNumber());
                 } catch (IOException e1) {
                     System.out.println("Не удалось отправить номер");
                     e1.printStackTrace();
                 }
                 EnterCode authorizationFormEnterSMSCode = new EnterCode();
-                education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
+                Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
 
             } else {
                 Registration authorizationFormRegistration = new Registration();
-                education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
+                Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
             }
         });
 

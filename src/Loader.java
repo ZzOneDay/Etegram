@@ -1,11 +1,14 @@
 import com.zzoneday.etegram.Education;
 
+import java.util.ArrayList;
+
 public class Loader {
 
     public static void main(String[] args) {
-        Education education = new Education();
-        education.startProgram();
+        Education.startProgram();
 //        education.startTestProgram();
+
+
     }
 }
 

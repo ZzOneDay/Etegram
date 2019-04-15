@@ -16,7 +16,6 @@ public class EnterCode implements authorization {
     private JPasswordField passwordField1;
 
     EnterCode() {
-        Education education = new Education();
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         textByEnteredNumber.setText(EnterPhoneNumber.yourNumber);
         buttonContinue.addActionListener(e -> {
@@ -28,7 +27,7 @@ public class EnterCode implements authorization {
 
             try {
                 //Вводим код чтобы авторизоваться
-                education.authorizationUserByCode(code);
+                Education.authorizationUserByCode(code);
                 codeResult = true;
                 System.out.println("Проверка кода - Ок");
 
@@ -38,7 +37,7 @@ public class EnterCode implements authorization {
             }
             if (codeResult) {
                 MainForm mainForm = new MainForm();
-                education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
+                Education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
             } else {
                 JOptionPane.showMessageDialog(rootPanel, "Неверный код");
                 passwordField1.grabFocus();

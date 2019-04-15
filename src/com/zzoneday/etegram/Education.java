@@ -11,11 +11,11 @@ import java.util.ArrayList;
 public class Education {
 
     static private TelegramApiBridge bridge;
-    private JFrame jFrame;
+    static private JFrame jFrame;
     private static Decoration decoration;
 
 
-    private void startTelegramApiBridge() {
+    static private void startTelegramApiBridge() {
 
         try {
             bridge = new TelegramApiBridge(
@@ -24,14 +24,14 @@ public class Education {
                     "80b53f81bb56fd854742600678fd27ad");
             System.out.println("Авторизация на сервере - Ок");
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(getJFrame(), "Ошибка подключения к серверу",
+            JOptionPane.showMessageDialog(jFrame, "Ошибка подключения к серверу",
                     "Ошибка соединения", JOptionPane.ERROR_MESSAGE);
             System.out.println("Авторизация на сервере - Ошибка");
             e.printStackTrace();
         }
     }
 
-    public void startProgram() {
+    static public void startProgram() {
 
         jFrame = new JFrame();
         decoration = new Decoration(jFrame);
@@ -64,16 +64,16 @@ public class Education {
 //
 //    }
 
-    public ArrayList getContactsArrayList() throws IOException {
+    static public ArrayList getContactsArrayList() throws IOException {
         return bridge.contactsGetContacts();
     }
 
-    public void setNextJPanelInMainJFrame(JPanel jPanel) {
-        getDecoration().setContentPanel(jPanel);
+    static public void setNextJPanelInMainJFrame(JPanel jPanel) {
+        decoration.setContentPanel(jPanel);
     }
 
 
-    public boolean getResultUserIsRegistered(String string) {
+    static public boolean getResultUserIsRegistered(String string) {
 
         boolean resultUserIsRegistered = false;
         System.out.println("Проверка номер: " + cleanStringToNumber(string));
@@ -88,26 +88,19 @@ public class Education {
     }
 
 
-    public void sentCodeToThisNumber(String string) throws IOException {
+    static public void sentCodeToThisNumber(String string) throws IOException {
         System.out.println("Отправка кода на номер: " + cleanStringToNumber(string));
         bridge.authSendCode(cleanStringToNumber(string));
     }
 
-    public void authorizationUserByCode(String code) throws IOException {
+    static public void authorizationUserByCode(String code) throws IOException {
         System.out.println("Отправка кода для авторизации: " + cleanStringToNumber(code));
         bridge.authSignIn(cleanStringToNumber(code));
     }
 
-    private String cleanStringToNumber(String string) {
+    static private String cleanStringToNumber(String string)
+    {
         return string.trim().replaceAll("[^0-9]+", "");
-    }
-
-    private Decoration getDecoration() {
-        return decoration;
-    }
-
-    private JFrame getJFrame() {
-        return jFrame;
     }
 
 }
