@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Etelegram.iml" filepath="$PROJECT_DIR$/Etelegram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Etegram.iml" filepath="$PROJECT_DIR$/Etegram.iml" />
     </modules>
   </component>
 </project>
