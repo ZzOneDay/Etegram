@@ -6,11 +6,12 @@ import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainForm extends Education {
+public class MainForm {
     private JPanel rootPanel;
     private JTextArea textArea1;
 
-    MainForm() {
+    public MainForm() {
+
         for (int i = 0; i < contactsList().size(); i++)
         {
             textArea1.append((String) contactsList().get(i));
@@ -24,6 +25,7 @@ public class MainForm extends Education {
 
     private ArrayList contactsList()
     {
+        Education education = new Education();
         ArrayList contactList = new ArrayList<>();
         try {
             contactList = education.getContactsArrayList();

@@ -5,7 +5,7 @@ import com.zzoneday.etegram.Education;
 import javax.swing.*;
 import java.io.IOException;
 
-public class EnterPhoneNumber extends Education implements authorization {
+public class EnterPhoneNumber implements authorization {
     private JPanel rootPanel;
     JButton Logo;
     JTextPane TextPainPleaseTypeYourNumber;
@@ -18,10 +18,10 @@ public class EnterPhoneNumber extends Education implements authorization {
 
 
     public EnterPhoneNumber() {
+        Education education = new Education();
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         buttonContinue.addActionListener(e -> {
-            checkedRegisteredUserByPhone(getEnteredNumber());
-        if (education.getResultUserIsRegistered()) {
+        if (education.getResultUserIsRegistered(getEnteredNumber())) {
             try {
                 education.sentCodeToThisNumber(getEnteredNumber());
             } catch (IOException e1) {

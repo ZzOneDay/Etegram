@@ -1,11 +1,12 @@
 package com.zzoneday.etegram.authorization;
 
 import com.zzoneday.etegram.Education;
+import com.zzoneday.etegram.main.MainForm;
 
 import javax.swing.*;
 import java.io.IOException;
 
-public class EnterCode extends Education implements authorization {
+public class EnterCode implements authorization {
     JButton Logo;
     JTextPane TextPainPleaseTypeYourNumber;
     JButton LogoBlock;
@@ -15,6 +16,7 @@ public class EnterCode extends Education implements authorization {
     private JPasswordField passwordField1;
 
     EnterCode() {
+        Education education = new Education();
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         textByEnteredNumber.setText(EnterPhoneNumber.yourNumber);
         buttonContinue.addActionListener(e -> {
@@ -22,16 +24,28 @@ public class EnterCode extends Education implements authorization {
 
             //Безопасность на высоте
             String code = String.valueOf(passwordField1.getPassword());
+            boolean codeResult = false;
 
             try {
                 //Вводим код чтобы авторизоваться
                 education.authorizationUserByCode(code);
+                codeResult = true;
                 System.out.println("Проверка кода - Ок");
 
             } catch (IOException e1) {
                 System.out.println("Проверка кода - Ошибка");
                 e1.printStackTrace();
             }
+            if (codeResult)
+            {
+                MainForm mainForm = new MainForm();
+                education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
+            }
+            else
+                {
+                    JOptionPane.showMessageDialog(rootPanel, "Неверный код");
+                    passwordField1.grabFocus();
+                }
         });
     }
 

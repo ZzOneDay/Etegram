@@ -1,9 +1,9 @@
 import com.zzoneday.etegram.Education;
 
-public class Loader extends Education {
+public class Loader {
 
     public static void main(String[] args) {
-
+        Education education = new Education();
         education.startProgram();
 //        education.startTestProgram();
 

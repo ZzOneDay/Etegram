@@ -12,9 +12,8 @@ public class Education {
 
     static private TelegramApiBridge bridge;
     private JFrame jFrame;
-    private Decoration decoration;
-    protected static Education education = new Education();
-    private boolean resultUserIsRegistered;
+    private static Decoration decoration;
+
 
 
     private void startTelegramApiBridge ()
@@ -51,21 +50,21 @@ public class Education {
 
     }
 
-    public void startTestProgram() {
-
-        jFrame = new JFrame();
-        decoration = new Decoration(jFrame);
-        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
-
-        jFrame.setSize(800, 600);
-        jFrame.setUndecorated(true);
-        jFrame.setContentPane(decoration.getRootPanel());
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
-
-    }
+//    public void startTestProgram() {
+//
+//        jFrame = new JFrame();
+//        decoration = new Decoration(jFrame);
+//        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
+//
+//        jFrame.setSize(800, 600);
+//        jFrame.setUndecorated(true);
+//        jFrame.setContentPane(decoration.getRootPanel());
+//        jFrame.setLocationRelativeTo(null);
+//        jFrame.setVisible(true);
+//        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
+//        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
+//
+//    }
 
     public ArrayList getContactsArrayList() throws IOException {
         return bridge.contactsGetContacts();
@@ -73,15 +72,15 @@ public class Education {
 
     public void setNextJPanelInMainJFrame(JPanel jPanel)
     {
-        getDecoration().setContentPanel(jPanel.getRootPane());
+        getDecoration().setContentPanel(jPanel);
     }
 
 
-    protected void checkedRegisteredUserByPhone(String string) {
 
+        public boolean getResultUserIsRegistered (String string) {
 
+        boolean resultUserIsRegistered = false;
         System.out.println("Проверка номер: "+cleanStringToNumber(string));
-        resultUserIsRegistered = false;
         AuthCheckedPhone checkedPhone;
         try {
             checkedPhone = bridge.authCheckPhone(cleanStringToNumber(string));
@@ -89,6 +88,7 @@ public class Education {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return resultUserIsRegistered;
     }
 
 
@@ -116,8 +116,4 @@ public class Education {
         return jFrame;
     }
 
-    public boolean getResultUserIsRegistered ()
-    {
-        return resultUserIsRegistered;
-    }
 }
