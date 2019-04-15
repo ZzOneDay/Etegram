@@ -36,16 +36,13 @@ public class EnterCode implements authorization {
                 System.out.println("Проверка кода - Ошибка");
                 e1.printStackTrace();
             }
-            if (codeResult)
-            {
+            if (codeResult) {
                 MainForm mainForm = new MainForm();
                 education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
+            } else {
+                JOptionPane.showMessageDialog(rootPanel, "Неверный код");
+                passwordField1.grabFocus();
             }
-            else
-                {
-                    JOptionPane.showMessageDialog(rootPanel, "Неверный код");
-                    passwordField1.grabFocus();
-                }
         });
     }
 

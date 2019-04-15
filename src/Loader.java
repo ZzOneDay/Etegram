@@ -6,11 +6,8 @@ public class Loader {
         Education education = new Education();
         education.startProgram();
 //        education.startTestProgram();
-
     }
-
-
-
+}
 
 
 //
@@ -38,9 +35,7 @@ public class Loader {
 //        ArrayList contactsList = bridge.contactsGetContacts();
 //        for (int i = 0; i < (contactsList.size() - 1); i++) {
 //            System.out.println(contactsList.get(i));
-
-
-}
+//
 //    public void changeForm (JPanel jPanel1, JPanel jPanel2)
 //    {
 ////        jPanel1.setVisible(false);

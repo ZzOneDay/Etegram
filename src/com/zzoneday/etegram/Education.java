@@ -15,9 +15,7 @@ public class Education {
     private static Decoration decoration;
 
 
-
-    private void startTelegramApiBridge ()
-    {
+    private void startTelegramApiBridge() {
 
         try {
             bridge = new TelegramApiBridge(
@@ -26,7 +24,7 @@ public class Education {
                     "80b53f81bb56fd854742600678fd27ad");
             System.out.println("Авторизация на сервере - Ок");
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(getJFrame(),"Ошибка подключения к серверу",
+            JOptionPane.showMessageDialog(getJFrame(), "Ошибка подключения к серверу",
                     "Ошибка соединения", JOptionPane.ERROR_MESSAGE);
             System.out.println("Авторизация на сервере - Ошибка");
             e.printStackTrace();
@@ -70,17 +68,15 @@ public class Education {
         return bridge.contactsGetContacts();
     }
 
-    public void setNextJPanelInMainJFrame(JPanel jPanel)
-    {
+    public void setNextJPanelInMainJFrame(JPanel jPanel) {
         getDecoration().setContentPanel(jPanel);
     }
 
 
-
-        public boolean getResultUserIsRegistered (String string) {
+    public boolean getResultUserIsRegistered(String string) {
 
         boolean resultUserIsRegistered = false;
-        System.out.println("Проверка номер: "+cleanStringToNumber(string));
+        System.out.println("Проверка номер: " + cleanStringToNumber(string));
         AuthCheckedPhone checkedPhone;
         try {
             checkedPhone = bridge.authCheckPhone(cleanStringToNumber(string));
@@ -102,17 +98,15 @@ public class Education {
         bridge.authSignIn(cleanStringToNumber(code));
     }
 
-    private String cleanStringToNumber (String string)
-    {
+    private String cleanStringToNumber(String string) {
         return string.trim().replaceAll("[^0-9]+", "");
     }
 
-    private Decoration getDecoration () {
+    private Decoration getDecoration() {
         return decoration;
     }
 
-    private JFrame getJFrame ()
-    {
+    private JFrame getJFrame() {
         return jFrame;
     }
 

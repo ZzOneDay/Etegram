@@ -10,13 +10,13 @@ public class Decoration {
     private JPanel contentPanel;
     private JFrame jFrame;
 
-    public Decoration(JFrame jFrame) {
+    Decoration(JFrame jFrame) {
         this.jFrame = jFrame;
         closeButton.addActionListener(e -> closeApp());
         minimizeButton.addActionListener(e -> minimizeApp());
     }
 
-    public void setContentPanel(Component component) {
+    void setContentPanel(Component component) {
         contentPanel.removeAll(); //Очищаем
         contentPanel.add(component);
         contentPanel.revalidate(); //Растягивает
