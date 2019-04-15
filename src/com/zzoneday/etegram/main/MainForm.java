@@ -1,30 +1,32 @@
 package com.zzoneday.etegram.main;
 
 import com.zzoneday.etegram.Education;
+import org.javagram.response.object.UserContact;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainForm {
     private JPanel rootPanel;
-    private JTextArea textArea1;
 
     public MainForm() {
 
         ArrayList allContactList = contactsList();
 
-        for (int i = 0; i < allContactList.size()-1; i++) {
+        JPanel scroll = new JPanel();
 
-//        ArrayList contactsList = bridge.contactsGetContacts();
-//        for (int i = 0; i < (contactsList.size() - 1); i++) {
-//            System.out.println(contactsList.get(i));
-//            textArea1.append((String) contactsList().get(i));
+        scroll.setLayout(new BoxLayout(scroll, BoxLayout.Y_AXIS));
 
-            textArea1.append(allContactList.get(i).toString());
 
-            System.out.println(contactsList().get(i));
+        for (int i = 0; i < allContactList.size(); i++)
+        {
+            scroll.add(new JLabel(allContactList.get(i).toString()));
         }
+        JScrollPane scrollPane = new JScrollPane(scroll);
+
+        rootPanel.add(scrollPane, BorderLayout.CENTER);
     }
 
     public JPanel getRootPanel() {
@@ -32,7 +34,7 @@ public class MainForm {
     }
 
     private ArrayList contactsList() {
-        ArrayList contactList = new ArrayList<>();
+        ArrayList contactList = new ArrayList<UserContact>();
         try {
             contactList = Education.getContactsArrayList();
             System.out.println("Получить список контактов - Ок");

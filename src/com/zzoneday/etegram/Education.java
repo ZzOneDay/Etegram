@@ -1,6 +1,7 @@
 package com.zzoneday.etegram;
 
 import com.zzoneday.etegram.authorization.EnterPhoneNumber;
+import com.zzoneday.etegram.main.MainForm;
 import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 
@@ -48,21 +49,21 @@ public class Education {
 
     }
 
-//    public void startTestProgram() {
-//
-//        jFrame = new JFrame();
-//        decoration = new Decoration(jFrame);
-//        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
-//
-//        jFrame.setSize(800, 600);
-//        jFrame.setUndecorated(true);
-//        jFrame.setContentPane(decoration.getRootPanel());
-//        jFrame.setLocationRelativeTo(null);
-//        jFrame.setVisible(true);
-//        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-//        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
-//
-//    }
+    static public void startTestProgram() {
+
+        jFrame = new JFrame();
+        decoration = new Decoration(jFrame);
+        MainForm mainForm = new MainForm();
+
+        jFrame.setSize(800, 600);
+        jFrame.setUndecorated(true);
+        jFrame.setContentPane(decoration.getRootPanel());
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
+        decoration.setContentPanel(mainForm.getRootPanel());
+
+    }
 
     static public ArrayList getContactsArrayList() throws IOException {
         return bridge.contactsGetContacts();

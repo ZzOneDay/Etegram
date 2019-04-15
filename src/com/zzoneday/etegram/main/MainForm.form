@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zzoneday.etegram.main.MainForm">
-  <grid id="27dc6" binding="rootPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+  <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="33" y="47" width="800" height="600"/>
     </constraints>
@@ -9,11 +9,6 @@
       <preferredSize width="800" height="600"/>
     </properties>
     <border type="none"/>
-    <children>
-      <component id="eea2a" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-        <constraints/>
-        <properties/>
-      </component>
-    </children>
+    <children/>
   </grid>
 </form>
