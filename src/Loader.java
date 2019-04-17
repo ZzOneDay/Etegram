@@ -3,8 +3,8 @@ import com.zzoneday.etegram.Education;
 public class Loader {
 
     public static void main(String[] args) {
-        Education.startProgram();
-//        Education.startTestProgram();
+//        Education.startProgram();
+        Education.startTestProgram();
     }
 }
 

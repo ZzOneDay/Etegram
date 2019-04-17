@@ -1,7 +1,6 @@
 package com.zzoneday.etegram;
 
 import com.zzoneday.etegram.authorization.EnterPhoneNumber;
-import com.zzoneday.etegram.main.MainForm;
 import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 
@@ -51,17 +50,18 @@ public class Education {
 
     static public void startTestProgram() {
 
+
         jFrame = new JFrame();
         decoration = new Decoration(jFrame);
-        MainForm mainForm = new MainForm();
-
+        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(800, 600);
         jFrame.setUndecorated(true);
         jFrame.setContentPane(decoration.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
         //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-        decoration.setContentPanel(mainForm.getRootPanel());
+        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
 
     }
 

@@ -17,7 +17,7 @@ public class EnterCode implements authorization {
 
     EnterCode() {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
-        textByEnteredNumber.setText(EnterPhoneNumber.yourNumber);
+//        textByEnteredNumber.setText(EnterPhoneNumber.yourNumber);
         buttonContinue.addActionListener(e -> {
 
 
