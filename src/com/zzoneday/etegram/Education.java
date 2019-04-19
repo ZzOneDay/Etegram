@@ -5,6 +5,8 @@ import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,6 +15,10 @@ public class Education {
     static private TelegramApiBridge bridge;
     static private JFrame jFrame;
     private static Decoration decoration;
+
+    static Font light;
+    static Font regular;
+    static Font semiBond;
 
 
     static private void startTelegramApiBridge() {
@@ -31,32 +37,32 @@ public class Education {
         }
     }
 
-    static public void startProgram() {
-
-        jFrame = new JFrame();
-        decoration = new Decoration(jFrame);
-        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
-
-        jFrame.setSize(800, 600);
-        jFrame.setUndecorated(true);
-        jFrame.setContentPane(decoration.getRootPanel());
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-        startTelegramApiBridge();
-        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
-
-    }
+//    static public void startProgram() {
+//
+//        jFrame = new JFrame();
+//        decoration = new Decoration(jFrame);
+//        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
+//
+//        jFrame.setSize(800, 600);
+//        jFrame.setUndecorated(true);
+//        jFrame.setContentPane(decoration.getRootPanel());
+//        jFrame.setLocationRelativeTo(null);
+//        jFrame.setVisible(true);
+//        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
+//        startTelegramApiBridge();
+//        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
+//
+//    }
 
     static public void startTestProgram() {
 
-
+        loadCustomFont();
         jFrame = new JFrame();
         decoration = new Decoration(jFrame);
         EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(800, 600);
-        jFrame.setUndecorated(true);
+        jFrame.setUndecorated(false);
         jFrame.setContentPane(decoration.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
@@ -104,4 +110,46 @@ public class Education {
         return string.trim().replaceAll("[^0-9]+", "");
     }
 
-}
+    private static void loadCustomFont() {
+        //Если шрифт не прогрузиться будет обычный TimesRoman;
+            try {
+                //create the font to use. Specify the size!
+                light = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansLight.ttf"));
+                regular = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansRegular.ttf"));
+                semiBond = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansSemiBold.ttf"));
+
+                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                //register the font
+                ge.registerFont(light);
+                ge.registerFont(regular);
+                ge.registerFont(semiBond);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        static public Font getCustomFont (String fontName, float fontSize)
+        {
+            Font font = new Font("TimesRoman", Font.PLAIN, 12);
+            if (fontName.equals("light"))
+            {
+                font = light;
+            }
+            if (fontName.equals("regular"))
+            {
+                font = regular;
+            }
+            if (fontName.equals("semiBold"))
+            {
+                font = semiBond;
+            }
+            System.out.println(font.getFontName());
+            return font.deriveFont(fontSize);
+        }
+
+    }
+
+
+
