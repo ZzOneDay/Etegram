@@ -37,22 +37,24 @@ public class Education {
         }
     }
 
-//    static public void startProgram() {
-//
-//        jFrame = new JFrame();
-//        decoration = new Decoration(jFrame);
-//        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
-//
-//        jFrame.setSize(800, 600);
-//        jFrame.setUndecorated(true);
-//        jFrame.setContentPane(decoration.getRootPanel());
-//        jFrame.setLocationRelativeTo(null);
-//        jFrame.setVisible(true);
-//        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-//        startTelegramApiBridge();
-//        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
-//
-//    }
+    static public void startProgram() {
+
+        loadCustomFont();
+
+        jFrame = new JFrame();
+        decoration = new Decoration(jFrame);
+        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
+
+        jFrame.setSize(800, 600);
+        jFrame.setUndecorated(true);
+        jFrame.setContentPane(decoration.getRootPanel());
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
+        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
+        startTelegramApiBridge();
+        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
+
+    }
 
     static public void startTestProgram() {
 
@@ -62,7 +64,7 @@ public class Education {
         EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(800, 600);
-        jFrame.setUndecorated(false);
+        jFrame.setUndecorated(true);
         jFrame.setContentPane(decoration.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
