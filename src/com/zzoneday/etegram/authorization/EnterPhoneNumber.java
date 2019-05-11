@@ -77,25 +77,25 @@ public class EnterPhoneNumber implements authorization {
 //                Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
 //            }
 //        });
-        buttonJPanel.addMouseListener(new MouseAdapter() {
+        buttonNext.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("click");
-                if (Education.getResultUserIsRegistered(getEnteredNumber())) {
-                    try {
-                        Education.sentCodeToThisNumber(getEnteredNumber());
-                    } catch (IOException e1) {
-                        System.out.println("Не удалось отправить номер");
-                        e1.printStackTrace();
-                    }
+//                if (Education.getResultUserIsRegistered(getEnteredNumber())) {
+//                    try {
+//                        Education.sentCodeToThisNumber(getEnteredNumber());
+//                    } catch (IOException e1) {
+//                        System.out.println("Не удалось отправить номер");
+//                        e1.printStackTrace();
+//                    }
                     EnterCode authorizationFormEnterSMSCode = new EnterCode();
                     Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
 
-                } else {
-                    Registration authorizationFormRegistration = new Registration();
-                    Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
-                }
+//                } else {
+//                    Registration authorizationFormRegistration = new Registration();
+//                    Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
+//                }
             }});
     };
 
