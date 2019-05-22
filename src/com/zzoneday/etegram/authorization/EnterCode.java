@@ -27,6 +27,8 @@ public class EnterCode implements authorization {
     private BufferedImage iconLock;
     private BufferedImage buttonBackground;
 
+    static private String enteredNumber; //Телефон пользователя в окне
+
     EnterCode() {
         //Основные пункты загрузки
         loadImage();
@@ -40,7 +42,7 @@ public class EnterCode implements authorization {
         mainText.setForeground(Color.WHITE);
 
         //Текст номера телефона пользователя
-        textYourNumber.setText("+7 900 707-92-29");
+        textYourNumber.setText(enteredNumber);
         textYourNumber.setBackground(new Color(0, 0, 0, 0));
         textYourNumber.setFont(Education.getCustomFont("light", 38f));
         textYourNumber.setForeground(Color.lightGray);
@@ -83,14 +85,29 @@ public class EnterCode implements authorization {
         });
     }
 
+    static void setEnteredNumber (String number)
+            //9117079229 = 10 Символов
+    {
+        if (number.length() == 10) {
+            String part1 = "+7";
+            String part2 = " " + number.substring(0, 3);
+            String part3 = " " + number.substring(3, 6);
+            String part4 = "-" + number.substring(6, 8);
+            String part5 = "-" + number.substring(8);
+            enteredNumber = part1 + part2 + part3 + part4 + part5;
+        }
+        else
+            {
+                enteredNumber = "+7 " +number;
 
-    public JPanel getRootPanel() {
-        return rootPanel;
+            }
     }
 
 
-    private String getEnteredNumber() {
-        return "89117079229";
+
+
+    public JPanel getRootPanel() {
+        return rootPanel;
     }
 
 

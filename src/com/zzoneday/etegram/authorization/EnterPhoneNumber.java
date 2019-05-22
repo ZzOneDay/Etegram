@@ -20,7 +20,7 @@ public class EnterPhoneNumber implements authorization {
     JPanel logoPanel;
     private JLabel textPleaseTypeNumber;
     private JPanel enterPhoneNumberJPanel;
-    private JTextField textField1;
+    private JTextField enteredNumberInField;
     private JLabel numberOne;
     private JPanel buttonJPanel;
     private JButton buttonNext;
@@ -35,7 +35,6 @@ public class EnterPhoneNumber implements authorization {
     public EnterPhoneNumber() {
         loadImage();
 
-
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
 
         textPleaseTypeNumber.setText("<html><center>Введите код страны и номер<br>вашего мобильного телефона<center></html>");
@@ -44,10 +43,10 @@ public class EnterPhoneNumber implements authorization {
 
         numberOne.setFont(Education.getCustomFont("regular", 34f));
         numberOne.setForeground(Color.white);
-        textField1.setBackground(new Color(0, 0, 0, 0));
-        textField1.setFont(Education.getCustomFont("regular", 34f));
-        textField1.setForeground(Color.white);
-        textField1.setBorder(null);
+        enteredNumberInField.setBackground(new Color(0, 0, 0, 0));
+        enteredNumberInField.setFont(Education.getCustomFont("regular", 34f));
+        enteredNumberInField.setForeground(Color.white);
+        enteredNumberInField.setBorder(null);
 
 
         buttonNext.setText("ПРОДОЛЖИТЬ");
@@ -58,58 +57,47 @@ public class EnterPhoneNumber implements authorization {
         buttonNext.setHorizontalTextPosition(0);
 
 
-
-
-
-//        buttonContinue.addActionListener(e -> {
-//            if (Education.getResultUserIsRegistered(getEnteredNumber())) {
-//                try {
-//                    Education.sentCodeToThisNumber(getEnteredNumber());
-//                } catch (IOException e1) {
-//                    System.out.println("Не удалось отправить номер");
-//                    e1.printStackTrace();
-//                }
-//                EnterCode authorizationFormEnterSMSCode = new EnterCode();
-//                Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
-//
-//            } else {
-//                Registration authorizationFormRegistration = new Registration();
-//                Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
-//            }
-//        });
         buttonNext.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("click");
-//                if (Education.getResultUserIsRegistered(getEnteredNumber())) {
-//                    try {
-//                        Education.sentCodeToThisNumber(getEnteredNumber());
-//                    } catch (IOException e1) {
-//                        System.out.println("Не удалось отправить номер");
-//                        e1.printStackTrace();
-//                    }
+                EnterCode.setEnteredNumber(getEnteredNumber());
+                if (Education.getWorkStatus()) {
+                    //Боевой режим
+                    if (Education.getResultUserIsRegistered(getEnteredNumber())) {
+                        try {
+                            Education.sentCodeToThisNumber(getEnteredNumber());
+                        } catch (IOException e1) {
+                            System.out.println("Не удалось отправить номер");
+                            e1.printStackTrace();
+                        }
+                        EnterCode authorizationFormEnterSMSCode = new EnterCode();
+                        Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
+                    } else {
+                        Registration authorizationFormRegistration = new Registration();
+                        Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
+                    }
+                } else {
+                    //Режим отладки
                     EnterCode authorizationFormEnterSMSCode = new EnterCode();
                     Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
-
-//                } else {
-//                    Registration authorizationFormRegistration = new Registration();
-//                    Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
-//                }
-            }});
-    };
-
+                    System.out.println(getEnteredNumber()); //Пишет номер из введеной строчки
+                }
+            }
+        });
+    }
 
     public JPanel getRootPanel() {
         return rootPanel;
     }
 
-
+    //Получить номер из поля ввода
     private String getEnteredNumber() {
-        return "89117079229";
+        return enteredNumberInField.getText();
     }
 
-
+    //Внешний вид
     private void createUIComponents() {
         // TODO: place custom component creation code here
         logoPanel = new JPanel() {

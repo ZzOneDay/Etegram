@@ -20,6 +20,18 @@ public class Education {
     static Font regular;
     static Font semiBond;
 
+    private static boolean workStatusToNormal = true; //Режим отработки = Нет
+
+    static public boolean getWorkStatus ()
+    {
+        return workStatusToNormal;
+    }
+
+    static public void setWorkStatus (Boolean workStatusIsNormal)
+    {
+        workStatusToNormal = workStatusIsNormal;
+    }
+
 
     static private void startTelegramApiBridge() {
 
@@ -51,27 +63,61 @@ public class Education {
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
         //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
+        if (getWorkStatus()) {
         startTelegramApiBridge();
+        }
         decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
 
     }
 
-    static public void startTestProgram() {
+    //Инструменты простые
 
-        loadCustomFont();
-        jFrame = new JFrame();
-        decoration = new Decoration(jFrame);
-        EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(800, 600);
-        jFrame.setUndecorated(true);
-        jFrame.setContentPane(decoration.getRootPanel());
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-        //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-        decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
-
+    static private String cleanStringToNumber(String string)
+    {
+        return string.trim().replaceAll("[^0-9]+", "");
     }
+
+    private static void loadCustomFont() {
+        //Если шрифт не прогрузиться будет обычный TimesRoman;
+        try {
+            //create the font to use. Specify the size!
+            light = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansLight.ttf"));
+            regular = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansRegular.ttf"));
+            semiBond = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansSemiBold.ttf"));
+
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            //register the font
+            ge.registerFont(light);
+            ge.registerFont(regular);
+            ge.registerFont(semiBond);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static public Font getCustomFont (String fontName, float fontSize)
+    {
+        Font font = new Font("TimesRoman", Font.PLAIN, 12);
+        if (fontName.equals("light"))
+        {
+            font = light;
+        }
+        if (fontName.equals("regular"))
+        {
+            font = regular;
+        }
+        if (fontName.equals("semiBold"))
+        {
+            font = semiBond;
+        }
+        System.out.println(font.getFontName());
+        return font.deriveFont(fontSize);
+    }
+
+
+    //Инструменты по работе с API Bridge;
 
     static public ArrayList getContactsArrayList() throws IOException {
         return bridge.contactsGetContacts();
@@ -107,49 +153,6 @@ public class Education {
         bridge.authSignIn(cleanStringToNumber(code));
     }
 
-    static private String cleanStringToNumber(String string)
-    {
-        return string.trim().replaceAll("[^0-9]+", "");
-    }
-
-    private static void loadCustomFont() {
-        //Если шрифт не прогрузиться будет обычный TimesRoman;
-            try {
-                //create the font to use. Specify the size!
-                light = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansLight.ttf"));
-                regular = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansRegular.ttf"));
-                semiBond = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansSemiBold.ttf"));
-
-                GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                //register the font
-                ge.registerFont(light);
-                ge.registerFont(regular);
-                ge.registerFont(semiBond);
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        static public Font getCustomFont (String fontName, float fontSize)
-        {
-            Font font = new Font("TimesRoman", Font.PLAIN, 12);
-            if (fontName.equals("light"))
-            {
-                font = light;
-            }
-            if (fontName.equals("regular"))
-            {
-                font = regular;
-            }
-            if (fontName.equals("semiBold"))
-            {
-                font = semiBond;
-            }
-            System.out.println(font.getFontName());
-            return font.deriveFont(fontSize);
-        }
 
     }
 

@@ -55,7 +55,7 @@
               <text value="+7"/>
             </properties>
           </component>
-          <component id="63f6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="63f6" class="javax.swing.JTextField" binding="enteredNumberInField">
             <constraints/>
             <properties>
               <alignmentX value="0.0"/>
