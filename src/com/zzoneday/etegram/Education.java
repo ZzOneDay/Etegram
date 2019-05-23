@@ -16,9 +16,9 @@ public class Education {
     static private JFrame jFrame;
     private static Decoration decoration;
 
-    static Font light;
-    static Font regular;
-    static Font semiBond;
+    static private Font light;
+    static private Font regular;
+    static private Font semiBond;
 
     private static boolean workStatusToNormal = true; //Режим отработки = Нет
 
@@ -62,10 +62,12 @@ public class Education {
         jFrame.setContentPane(decoration.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
+
         //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
         if (getWorkStatus()) {
         startTelegramApiBridge();
         }
+
         decoration.setContentPanel(authorizationFormEnterPhoneNumber.getRootPanel());
 
     }

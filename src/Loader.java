@@ -1,31 +1,21 @@
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.authorization.EnterPhoneNumber;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Loader {
 
-    static Boolean workToTest = false;
-
     public static void main(String[] args) {
 
-        Frame test = new Frame();
-        JPanel jPanel = new JPanel();
-
-        int newEnter = JOptionPane.showConfirmDialog(jPanel,"Войти в обычном рабочем режиме?", "Меню входа в приложение", JOptionPane.YES_NO_OPTION);
+        int newEnter = JOptionPane.showConfirmDialog(new JPanel(),"Войти в обычном рабочем режиме?",
+                "Меню входа в приложение", JOptionPane.YES_NO_OPTION);
         if (newEnter == JOptionPane.NO_OPTION)
         {
             Education.setWorkStatus(false);
             //false - режим разрабочика; Изначально задано true - обычная работа приложения
         }
 
+        //Запуск основного кода программы
         Education.startProgram();
-    }
-
-    public boolean getWorkStatus ()
-    {
-        return workToTest;
     }
 }
 

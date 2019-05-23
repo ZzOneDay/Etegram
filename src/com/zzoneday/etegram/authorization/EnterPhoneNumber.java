@@ -4,9 +4,7 @@ import com.zzoneday.etegram.Education;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -15,14 +13,13 @@ import java.io.IOException;
 
 public class EnterPhoneNumber implements authorization {
     private JPanel rootPanel;
-    private JTextArea textAreaFirstCharNumber;
-    private JTextField yourNumberField;
     JPanel logoPanel;
+    JPanel enterPhoneNumberJPanel;
+    JPanel buttonJPanel;
+
     private JLabel textPleaseTypeNumber;
-    private JPanel enterPhoneNumberJPanel;
     private JTextField enteredNumberInField;
     private JLabel numberOne;
-    private JPanel buttonJPanel;
     private JButton buttonNext;
 
     private BufferedImage logo;
@@ -82,7 +79,8 @@ public class EnterPhoneNumber implements authorization {
                     //Режим отладки
                     EnterCode authorizationFormEnterSMSCode = new EnterCode();
                     Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
-                    System.out.println(getEnteredNumber()); //Пишет номер из введеной строчки
+                    System.out.println("Указан номер: " + getEnteredNumber()); //Пишет номер из введеной строчки
+                    System.out.println("Переход в следующее в окно: Ввод кода");
                 }
             }
         });
