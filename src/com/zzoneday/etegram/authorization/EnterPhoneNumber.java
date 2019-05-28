@@ -77,10 +77,18 @@ public class EnterPhoneNumber implements authorization {
                     }
                 } else {
                     //Режим отладки
-                    EnterCode authorizationFormEnterSMSCode = new EnterCode();
-                    Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
-                    System.out.println("Указан номер: " + getEnteredNumber()); //Пишет номер из введеной строчки
-                    System.out.println("Переход в следующее в окно: Ввод кода");
+                    if (getEnteredNumber().length() == 2) //+7
+                    {
+                        System.out.println("Длинна строчки с кодом" + getEnteredNumber().length());
+                        Registration authorizationFormRegistration = new Registration();
+                        Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
+                    }
+                    else {
+                        EnterCode authorizationFormEnterSMSCode = new EnterCode();
+                        Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
+                        System.out.println("Указан номер: " + getEnteredNumber()); //Пишет номер из введеной строчки
+                        System.out.println("Переход в следующее в окно: Ввод кода");
+                    }
                 }
             }
         });
@@ -92,7 +100,7 @@ public class EnterPhoneNumber implements authorization {
 
     //Получить номер из поля ввода
     private String getEnteredNumber() {
-        return enteredNumberInField.getText();
+        return "+7" + enteredNumberInField.getText();
     }
 
     //Внешний вид
