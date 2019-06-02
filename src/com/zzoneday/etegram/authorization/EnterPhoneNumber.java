@@ -59,7 +59,6 @@ public class EnterPhoneNumber implements authorization {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("click");
-                EnterCode.setEnteredNumber(getEnteredNumber());
                 if (Education.getWorkStatus()) {
                     //Боевой режим
                     if (Education.getResultUserIsRegistered(getEnteredNumber())) {
@@ -69,10 +68,10 @@ public class EnterPhoneNumber implements authorization {
                             System.out.println("Не удалось отправить номер");
                             e1.printStackTrace();
                         }
-                        EnterCode authorizationFormEnterSMSCode = new EnterCode();
+                        EnterCode authorizationFormEnterSMSCode = new EnterCode(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
                     } else {
-                        Registration authorizationFormRegistration = new Registration();
+                        Registration authorizationFormRegistration = new Registration(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
                     }
                 } else {
@@ -80,11 +79,11 @@ public class EnterPhoneNumber implements authorization {
                     if (getEnteredNumber().length() == 2) //+7
                     {
                         System.out.println("Длинна строчки с кодом" + getEnteredNumber().length());
-                        Registration authorizationFormRegistration = new Registration();
+                        Registration authorizationFormRegistration = new Registration(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
                     }
                     else {
-                        EnterCode authorizationFormEnterSMSCode = new EnterCode();
+                        EnterCode authorizationFormEnterSMSCode = new EnterCode(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
                         System.out.println("Указан номер: " + getEnteredNumber()); //Пишет номер из введеной строчки
                         System.out.println("Переход в следующее в окно: Ввод кода");

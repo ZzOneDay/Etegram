@@ -26,9 +26,9 @@ public class EnterCode implements authorization {
     private BufferedImage iconLock;
     private BufferedImage buttonBackground;
 
-    static private String enteredNumber; //Телефон пользователя в окне
+    //Телефон пользователя в окне
 
-    EnterCode() {
+    EnterCode(String enteredNumber) {
         //Основные пункты загрузки
         loadImage();
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
@@ -41,7 +41,7 @@ public class EnterCode implements authorization {
         mainText.setForeground(Color.WHITE);
 
         //Текст номера телефона пользователя
-        textYourNumber.setText(enteredNumber);
+        textYourNumber.setText(getEnteredNumberToSting(enteredNumber));
         textYourNumber.setBackground(new Color(0, 0, 0, 0));
         textYourNumber.setFont(Education.getCustomFont("light", 38f));
         textYourNumber.setForeground(Color.lightGray);
@@ -95,20 +95,24 @@ public class EnterCode implements authorization {
         );
     }
 
-    static void setEnteredNumber(String number)
+    private String getEnteredNumberToSting(String number)
     //9117079229 = 10 Символов
+    //+79117079229 = 12 символов
     {
-        if (number.length() == 10) {
-            String part1 = "+7";
-            String part2 = " " + number.substring(0, 3);
-            String part3 = " " + number.substring(3, 6);
-            String part4 = "-" + number.substring(6, 8);
-            String part5 = "-" + number.substring(8);
+        String enteredNumber;
+        System.out.println(number + "have length =" + number.length() );
+        if (number.length() == 12) {
+            String part1 = number.substring(0,2); //+7
+            String part2 = " " + number.substring(2, 5);//911
+            String part3 = " " + number.substring(5, 8); // 707
+            String part4 = "-" + number.substring(8, 10); //92
+            String part5 = "-" + number.substring(10); //29
             enteredNumber = part1 + part2 + part3 + part4 + part5;
         } else {
-            enteredNumber = "+7 " + number;
+            enteredNumber = number;
 
         }
+        return enteredNumber;
     }
 
 
