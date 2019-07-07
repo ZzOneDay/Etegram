@@ -1,6 +1,13 @@
+import com.zzoneday.etegram.Decoration;
 import com.zzoneday.etegram.Education;
+import com.zzoneday.etegram.authorization.EnterPhoneNumber;
+import com.zzoneday.etegram.main.UserAvatar;
+import com.zzoneday.etegram.main.contactList.Contact;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 
 public class Loader {
 
@@ -16,6 +23,20 @@ public class Loader {
 
         //Запуск основного кода программы
         Education.startProgram();
+
+        JFrame jFrame = new JFrame();
+        Contact contact = new Contact
+                ("Павел Новиков",
+                        "Как твои дела, Котик?",
+                        "9 сек",
+                        "res/User41.png",
+                        true);
+
+        jFrame.setSize(905, 630);
+        jFrame.setUndecorated(true);
+        jFrame.setContentPane(contact.getRootPanel());
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
     }
 }
 

@@ -5,10 +5,107 @@
       <xy x="33" y="47" width="800" height="600"/>
     </constraints>
     <properties>
-      <minimumSize width="800" height="600"/>
-      <preferredSize width="800" height="600"/>
+      <alignmentX value="0.0"/>
+      <alignmentY value="0.0"/>
+      <minimumSize width="0" height="0"/>
+      <preferredSize width="905" height="596"/>
     </properties>
     <border type="none"/>
-    <children/>
+    <children>
+      <grid id="aba8f" binding="titlePanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="10" flow-align="2">
+        <constraints border-constraint="North"/>
+        <properties>
+          <minimumSize width="0" height="50"/>
+          <preferredSize width="0" height="50"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="1b483" binding="userIcon" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints/>
+            <properties>
+              <minimumSize width="29" height="29"/>
+              <preferredSize width="29" height="29"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <component id="4073d" class="javax.swing.JLabel" binding="userName">
+            <constraints/>
+            <properties>
+              <text value="Pavel Novikov"/>
+            </properties>
+          </component>
+          <component id="930b9" class="javax.swing.JButton" binding="buttonSetting">
+            <constraints/>
+            <properties>
+              <maximumSize width="30" height="30"/>
+              <minimumSize width="30" height="30"/>
+              <opaque value="true"/>
+              <preferredSize width="30" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <splitpane id="ef487" binding="mainPanel">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <enabled value="true"/>
+          <focusable value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="a97da" binding="contactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties>
+              <preferredSize width="255" height="0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="afc78" binding="UpContactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <minimumSize width="78" height="50"/>
+                  <preferredSize width="78" height="50"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="25d9d" class="javax.swing.JButton" binding="button1" default-binding="true">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <text value="Button"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="630fc" binding="downContactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <minimumSize width="78" height="80"/>
+                  <preferredSize width="78" height="80"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="5cf3a" class="javax.swing.JButton" binding="button3" default-binding="true">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <text value="Button"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="74c00" class="javax.swing.JList" binding="contactsList">
+                <constraints border-constraint="West"/>
+                <properties/>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </splitpane>
+    </children>
   </grid>
 </form>

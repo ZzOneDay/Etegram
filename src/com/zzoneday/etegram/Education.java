@@ -57,7 +57,7 @@ public class Education {
         decoration = new Decoration(jFrame);
         EnterPhoneNumber authorizationFormEnterPhoneNumber = new EnterPhoneNumber();
 
-        jFrame.setSize(800, 600);
+        jFrame.setSize(905, 630);
         jFrame.setUndecorated(true);
         jFrame.setContentPane(decoration.getRootPanel());
         jFrame.setLocationRelativeTo(null);
@@ -102,15 +102,15 @@ public class Education {
     static public Font getCustomFont (String fontName, float fontSize)
     {
         Font font = new Font("TimesRoman", Font.PLAIN, 12);
-        if (fontName.equals("light"))
+        if (fontName.equals("OpenSansLight"))
         {
             font = light;
         }
-        if (fontName.equals("regular"))
+        if (fontName.equals("OpenSansRegular"))
         {
             font = regular;
         }
-        if (fontName.equals("semiBold"))
+        if (fontName.equals("OpenSansSemiBold"))
         {
             font = semiBond;
         }

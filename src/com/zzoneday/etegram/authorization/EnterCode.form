@@ -71,25 +71,26 @@
               <horizontalAlignment value="0"/>
               <maximumSize width="120" height="46"/>
               <minimumSize width="120" height="46"/>
+              <opaque value="false"/>
               <preferredSize width="120" height="46"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="2bb84" binding="buttonJPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="2bb84" binding="buttonJPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints/>
         <properties>
           <enabled value="true"/>
-          <maximumSize width="337" height="95"/>
-          <minimumSize width="337" height="95"/>
+          <maximumSize width="320" height="55"/>
+          <minimumSize width="320" height="55"/>
           <opaque value="false"/>
-          <preferredSize width="337" height="95"/>
+          <preferredSize width="320" height="55"/>
           <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
           <component id="ee233" class="javax.swing.JButton" binding="buttonNext">
-            <constraints/>
+            <constraints border-constraint="Center"/>
             <properties>
               <opaque value="false"/>
               <text value="Button"/>

@@ -35,19 +35,19 @@ public class EnterPhoneNumber implements authorization {
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
 
         textPleaseTypeNumber.setText("<html><center>Введите код страны и номер<br>вашего мобильного телефона<center></html>");
-        textPleaseTypeNumber.setFont(Education.getCustomFont("regular", 16f));
+        textPleaseTypeNumber.setFont(Education.getCustomFont("OpenSansRegular", 16f));
         textPleaseTypeNumber.setForeground(Color.WHITE);
 
-        numberOne.setFont(Education.getCustomFont("regular", 34f));
+        numberOne.setFont(Education.getCustomFont("OpenSansRegular", 34f));
         numberOne.setForeground(Color.white);
         enteredNumberInField.setBackground(new Color(0, 0, 0, 0));
-        enteredNumberInField.setFont(Education.getCustomFont("regular", 34f));
+        enteredNumberInField.setFont(Education.getCustomFont("OpenSansRegular", 34f));
         enteredNumberInField.setForeground(Color.white);
         enteredNumberInField.setBorder(null);
 
 
         buttonNext.setText("ПРОДОЛЖИТЬ");
-        buttonNext.setFont(Education.getCustomFont("regular",20f));
+        buttonNext.setFont(Education.getCustomFont("OpenSansRegular",20f));
         buttonNext.setForeground(Color.WHITE);
 
         buttonNext.setIcon(new ImageIcon(buttonBackground));

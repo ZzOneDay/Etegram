@@ -24,8 +24,24 @@ public class Decoration {
         closeButton.setIcon(new ImageIcon("res/GUI Components/icon-close.png"));
 
         closeButton.addActionListener(e -> closeApp());
+        closeButton.setBorder(BorderFactory.createEmptyBorder());
+
+
         hideButton.addActionListener(e -> hideApp());
+        hideButton.setBorder(BorderFactory.createEmptyBorder());
+//        hideButton.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mousePressed(MouseEvent e) {
+//                super.mousePressed(e);
+//                hideButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+//                super.mouse
+////                hideButton.setBorder(BorderFactory.createEmptyBorder());
+//            }
+//        });
     }
+
+
+
 
     void setContentPanel(Component component) {
         contentPanel.removeAll(); //Очищаем
@@ -35,9 +51,6 @@ public class Decoration {
     }
 
     private void hideApp() {
-//        Не работает на MacOS!!!!!!!!!!!!!
-//        jFrame.setExtendedState(Frame.ICONIFIED);
-//        jFrame.setState(Frame.ICONIFIED);
         jFrame.setState(jFrame.getExtendedState() | Frame.ICONIFIED);
     }
 
@@ -51,7 +64,7 @@ public class Decoration {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        contentPanel = new JPanel()
+        rootPanel = new JPanel()
         {
             @Override
             protected void paintComponent(Graphics g) {
@@ -62,7 +75,7 @@ public class Decoration {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                g.drawImage(background,0,0,null);
+                g.drawImage(background,0,34,null);
             }
         };
     }

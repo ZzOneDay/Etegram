@@ -1,4 +1,4 @@
-package com.zzoneday.etegram.main.contact;
+package com.zzoneday.etegram;
 
 import javax.swing.*;
 

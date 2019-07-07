@@ -73,20 +73,20 @@
           </component>
         </children>
       </grid>
-      <grid id="3f722" binding="buttonJPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="3f722" binding="buttonJPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints/>
         <properties>
           <enabled value="true"/>
-          <maximumSize width="337" height="95"/>
-          <minimumSize width="337" height="95"/>
+          <maximumSize width="320" height="55"/>
+          <minimumSize width="320" height="55"/>
           <opaque value="false"/>
-          <preferredSize width="337" height="95"/>
+          <preferredSize width="320" height="55"/>
           <visible value="true"/>
         </properties>
         <border type="none"/>
         <children>
           <component id="b5321" class="javax.swing.JButton" binding="buttonNext">
-            <constraints/>
+            <constraints border-constraint="Center"/>
             <properties>
               <opaque value="false"/>
               <text value="Button"/>
