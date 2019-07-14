@@ -7,6 +7,7 @@ public class TimeConverter {
     public String getTimeByTimeConverter(long dateIn) {
         long dateNowInMillis = new Date().getTime();
         long dateInMillis = dateIn * 1000;
+        long dateInMillisYesterday = dateNowInMillis - 86400000;
 
         Date date = new Date(dateInMillis);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yy");
@@ -24,7 +25,11 @@ public class TimeConverter {
         } else if (dateFormat.format(dateInMillis).equals(dateFormat.format(dateNowInMillis))) {
             //Если Дата совпадает с Датой Сегодня, то будет написано "Сегодня"
             stringTime = "Сегодня";
-        } else {
+        } else if (dateFormat.format(dateInMillis).equals(dateFormat.format(dateInMillisYesterday))) {
+            //Если Дата совпадает с Датой Вчера, то будет написано "Вчера"
+            stringTime = "Вчера";
+        }
+        else {
             //Не сегодня, то указывается дата
             stringTime = dateFormat.format(date);
         }
