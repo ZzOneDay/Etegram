@@ -50,6 +50,8 @@
       <splitpane id="ef487" binding="mainPanel">
         <constraints border-constraint="Center"/>
         <properties>
+          <dividerLocation value="250"/>
+          <dividerSize value="0"/>
           <enabled value="true"/>
           <focusable value="true"/>
           <verifyInputWhenFocusTarget value="true"/>
@@ -98,10 +100,12 @@
                   </component>
                 </children>
               </grid>
-              <component id="74c00" class="javax.swing.JList" binding="contactsList">
-                <constraints border-constraint="West"/>
+              <grid id="b358e" binding="contactsMain" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints border-constraint="Center"/>
                 <properties/>
-              </component>
+                <border type="none"/>
+                <children/>
+              </grid>
             </children>
           </grid>
         </children>

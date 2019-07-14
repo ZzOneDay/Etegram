@@ -32,6 +32,9 @@ public class Contact {
         contactNameJLabel.setFont(Education.getCustomFont("OpenSansSemiBold", 16));
         contactMessageJLabel.setFont(Education.getCustomFont("OpenSansRegular", 12));
         contactTimeJLabel.setFont(Education.getCustomFont("OpenSansLight",10));
+
+        //Рамка для контакта
+//        rootPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     public JPanel getRootPanel() {
@@ -71,6 +74,16 @@ public class Contact {
                     //Если контакт выбран, время сообщения скрыто, если не выбран, время появляется
                     contactTimeJLabel.setVisible(true);
                 }
+            }
+        };
+
+        rootPanel = new JPanel()
+        {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.setColor(new Color(204,205,205));
+                g.drawLine(0,60,250,60);
             }
         };
     }

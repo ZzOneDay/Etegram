@@ -1,10 +1,12 @@
 package com.zzoneday.etegram.main;
 
 import com.zzoneday.etegram.Education;
-import org.javagram.response.object.UserContact;
+import com.zzoneday.etegram.main.contactList.Contact;
+import com.zzoneday.etegram.main.contactList.ContactsList;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,13 +19,14 @@ public class MainForm {
     private JSplitPane mainPanel;
     private JPanel contactsPanel;
     private JPanel UpContactsPanel;
-    private JList contactsList;
     private JPanel downContactsPanel;
     private JButton buttonSetting;
     private JButton button3;
     private JLabel userName;
     private JButton button1;
     private JPanel userIcon;
+    private JPanel contactsMain;
+    private JPanel mainContactsPanel;
 
     private BufferedImage logoMicro;
     private BufferedImage iconSetting;
@@ -31,19 +34,23 @@ public class MainForm {
     public MainForm() {
         loadImage();
 
+        //Самая верхняя панель, титл бар
         Color myBlue = new Color(0, 180, 231);
         titlePanel.setBackground(myBlue);
         buttonSetting.setBackground(myBlue);
         buttonSetting.setIcon(new ImageIcon("res/GUI Components/icon-settings.png"));
         buttonSetting.setBorder(null);
 
+        //Верхняя панель, с Иконкой, ИмяПользователя, Настройки
         UserAvatar userImage = new UserAvatar("res/User29.png","blue-mini");
         userIcon.add(userImage.getRootPanel());
         userName.setText("Павел Новиков");
         userName.setForeground(Color.LIGHT_GRAY);
         userName.setFont(Education.getCustomFont("OpenSansRegular", 15));
 
-//        titlePanel.add(userImage.getRootPanel());
+        //КонтактЛист
+        ContactsList contactsList = new ContactsList();
+        contactsMain.add(contactsList.getRootPanel());
     }
 
     public JPanel getRootPanel() {
@@ -72,27 +79,14 @@ public class MainForm {
     }
 
 
-//        ArrayList allContactList = contactsList();
-//
-//        JPanel scroll = new JPanel();
-//
-//        scroll.setLayout(new BoxLayout(scroll, BoxLayout.Y_AXIS));
-//
-//
-//        for (int i = 0; i < allContactList.size(); i++)
-//        {
-//            scroll.add(new JLabel(allContactList.get(i).toString()));
-//        }
-//        JScrollPane scrollPane = new JScrollPane(scroll);
-//
-//        rootPanel.add(scrollPane, BorderLayout.CENTER);
-//    }
+
+    }
 //
 //    public JPanel getRootPanel() {
 //        return rootPanel;
 //    }
 //
-//    private ArrayList contactsList() {
+//    private ArrayList contactsJList() {
 //        ArrayList contactList = new ArrayList<UserContact>();
 //        try {
 //            contactList = Education.getContactsArrayList();
@@ -103,4 +97,3 @@ public class MainForm {
 //        }
 //        return contactList;
 //    }
-}

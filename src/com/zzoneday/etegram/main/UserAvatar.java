@@ -134,6 +134,8 @@ public class UserAvatar {
                 super.paintComponent(g);
                 g.drawImage(image,indentX,indentY,null);
                 g.drawImage(mask,indentX,indentY,null);
+                g.setColor(new Color(204,205,205));
+                g.drawLine(0,60,60,60);
             }
         };
     }

@@ -1,5 +1,5 @@
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.main.contactList.List;
+import com.zzoneday.etegram.main.contactList.ContactsList;
 
 
 import javax.swing.*;
@@ -21,9 +21,9 @@ public class Loader {
         Education.startProgram();
 
         JFrame jFrame = new JFrame();
-        jFrame.setSize(905, 630);
+        jFrame.setSize(265, 630);
         jFrame.setUndecorated(false);
-        List list = new List();
+        ContactsList list = new ContactsList();
         jFrame.setContentPane(list.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
