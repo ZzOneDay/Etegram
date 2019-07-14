@@ -18,12 +18,13 @@
         <border type="none"/>
         <children/>
       </grid>
-      <grid id="6e2eb" binding="nameContactMessagePanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="6e2eb" binding="nameContactMessagePanel" layout-manager="FlowLayout" hgap="0" vgap="0" flow-align="1">
         <constraints/>
         <properties>
-          <minimumSize width="145" height="62"/>
+          <maximumSize width="32767" height="62"/>
+          <minimumSize width="140" height="62"/>
           <opaque value="false"/>
-          <preferredSize width="145" height="62"/>
+          <preferredSize width="140" height="62"/>
         </properties>
         <border type="none"/>
         <children>
@@ -32,36 +33,43 @@
             <properties>
               <horizontalAlignment value="2"/>
               <horizontalTextPosition value="0"/>
-              <maximumSize width="145" height="20"/>
-              <minimumSize width="145" height="20"/>
-              <preferredSize width="145" height="20"/>
+              <maximumSize width="140" height="30"/>
+              <minimumSize width="140" height="30"/>
+              <preferredSize width="140" height="30"/>
               <text value="Имя Фамилия"/>
+              <verticalAlignment value="3"/>
             </properties>
           </component>
           <component id="da1d8" class="javax.swing.JLabel" binding="contactMessageJLabel">
             <constraints/>
             <properties>
-              <maximumSize width="145" height="20"/>
-              <minimumSize width="145" height="20"/>
-              <preferredSize width="145" height="20"/>
+              <maximumSize width="140" height="20"/>
+              <minimumSize width="140" height="20"/>
+              <preferredSize width="140" height="20"/>
               <text value="Привет. Как дела?"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="46fde" binding="timeMessagePanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="46fde" binding="timeMessagePanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints/>
         <properties>
-          <minimumSize width="40" height="62"/>
+          <maximumSize width="48" height="62"/>
+          <minimumSize width="48" height="62"/>
           <opaque value="false"/>
-          <preferredSize width="40" height="62"/>
+          <preferredSize width="48" height="62"/>
         </properties>
         <border type="none"/>
         <children>
           <component id="1d82" class="javax.swing.JLabel" binding="contactTimeJLabel">
-            <constraints/>
+            <constraints border-constraint="Center"/>
             <properties>
-              <text value="6 sec"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <maximumSize width="46" height="16"/>
+              <minimumSize width="46" height="16"/>
+              <preferredSize width="46" height="16"/>
+              <text value="11.07.19"/>
             </properties>
           </component>
         </children>

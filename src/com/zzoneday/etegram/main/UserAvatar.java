@@ -13,13 +13,18 @@ public class UserAvatar {
     private BufferedImage image;
     private BufferedImage mask;
     private Color maskColor;
+    private Boolean target;
+    private Boolean online;
+
+    private JPanel rootPanel;
+    private Color customGray = new Color(231,231,231);
 
     UserAvatar(String pathname, String type) {
         try {
             image = ImageIO.read(new File(pathname));
             if (type.equals("blue-mini")) {
                 //29x29 size
-                mask = ImageIO.read(new File("res/GUI Components/mask-blue-mini.png"));
+                mask = ImageIO.read(new File("res/GUI Components/mask-blue-mini-clear.png"));
             }
             if (type.equals("dark-gray-big")) {
                 //41x41 size
@@ -36,12 +41,27 @@ public class UserAvatar {
     }
 
 
-    public UserAvatar(String pathname, Color maskColor, Boolean online) {
-        this.maskColor = maskColor;
+    public UserAvatar(String pathname, Boolean online) {
+        this.online = online;
+        this.target = false;
+
         try {
             image = ImageIO.read(new File(pathname));
-            if (maskColor.equals(Color.WHITE))
-                //Mask is White {
+            setMask(target,online);
+        }
+            catch (IOException e) {
+                System.out.println("Error, Ошибка при загрузке:\nЦель " + target + "; Онлайн: " + online);
+            e.printStackTrace();
+        }
+
+
+    }
+    private void setMask(Boolean target, Boolean online) {
+        //Переосознал, заместо того чтобы задовать цвет, мы указывает Target и цвет будет автоматически.
+        try {
+            if (target)
+                //Mask is White
+                maskColor = Color.WHITE;
                 if (online) {
                     //User is online
                     mask = ImageIO.read(new File("res/GUI Components/mask-white-online.png"));
@@ -49,54 +69,78 @@ public class UserAvatar {
                     //User is offline
                     mask = ImageIO.read(new File("res/GUI Components/mask-white.png"));
                 }
-            if (maskColor.equals(Color.gray)) {
+            if (!target) {
+                //Mask is Gray
+                maskColor = (customGray);
                 if (online) {
                     //User is online
                     mask = ImageIO.read(new File("res/GUI Components/mask-gray-online.png"));
                 } else {
                     //User is offline
-                    mask = ImageIO.read(new File("res/GUI Components/mask-gray.png"));
+                    mask = ImageIO.read(new File("res/GUI Components/mask-gray-ok.png"));
                 }
             }
-        }
-            catch (IOException e) {
-                System.out.println("Error, Ошибка при загрузке:" + maskColor + "; " + online);
+            rootPanel.setBackground(maskColor);
+        } catch (IOException e) {
+            System.out.println("Error, Ошибка при загрузке:\nМаска: " + maskColor + "; Онлайн: " + online);
             e.printStackTrace();
+
         }
-
-
     }
+
 
     public Color getColor ()
     {
         return maskColor;
     }
 
-    private JPanel rootPanel;
-    public JPanel getRootPanel() {
-        return rootPanel;
+    public void changeOnlineAvatar ()
+    {
+        online=!online;
+        setMask(this.target, online);
+
     }
+    public void changeTargetAvatar ()
+    {
+        target = !target;
+        setMask(target,this.online);
+    }
+
+
+
+
+
+
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
         rootPanel = new JPanel() {
             @Override
             protected void paintBorder(Graphics g) {
-                int indent;
+                int indentY;
+                int indentX;
                 if (image.getHeight()==41)
                 {
-                    indent = 10;
+                    indentY = 10;
+                    indentX = 10;
+
                 }
                 else
                     {
-                        indent = 0;
+                        indentY = 0;
+                        indentX = 0;
                     }
 
                 super.paintComponent(g);
-                g.drawImage(image,0,indent,null);
-                g.drawImage(mask,0,indent,null);
+                g.drawImage(image,indentX,indentY,null);
+                g.drawImage(mask,indentX,indentY,null);
             }
         };
     }
+
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
 }
 
