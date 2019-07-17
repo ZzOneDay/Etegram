@@ -1,5 +1,6 @@
-package com.zzoneday.etegram.authorization;
+package com.zzoneday.etegram.authorizationFrame;
 
+import com.zzoneday.etegram.CustomFont;
 import com.zzoneday.etegram.Education;
 
 import javax.imageio.ImageIO;
@@ -38,11 +39,11 @@ public class Registration {
 
         mainText.setText(
                 "<html><center>Введите ваше имя и фамилию для завершения регистрации<center></html>");
-        mainText.setFont(Education.getCustomFont("OpenSansRegular", 14f));
+        mainText.setFont(CustomFont.getCustomFont("OpenSansRegular", 14f));
         mainText.setForeground(Color.WHITE);
 
-        textFieldRegistrationName.setFont(Education.getCustomFont("OpenSansLight", 30f));
-        textFieldRegistrationFamily.setFont(Education.getCustomFont("OpenSansLight", 30f));
+        textFieldRegistrationName.setFont(CustomFont.getCustomFont("OpenSansLight", 30f));
+        textFieldRegistrationFamily.setFont(CustomFont.getCustomFont("OpenSansLight", 30f));
 
         setTextFieldHelp(textFieldRegistrationName, textFieldRegistrationName.getText());
         setTextFieldHelp(textFieldRegistrationFamily, textFieldRegistrationFamily.getText());
@@ -59,7 +60,7 @@ public class Registration {
 
         //Кнопка "Продолжить" для перехода в следующее окно
         buttonNext.setText("ЗАВЕРШИТЬ");
-        buttonNext.setFont(Education.getCustomFont("OpenSansRegular", 20f));
+        buttonNext.setFont(CustomFont.getCustomFont("OpenSansRegular", 20f));
         buttonNext.setForeground(Color.WHITE);
         buttonNext.setIcon(new ImageIcon(buttonBackground));
         buttonNext.setHorizontalTextPosition(0);

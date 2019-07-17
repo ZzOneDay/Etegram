@@ -1,8 +1,10 @@
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.main.contactList.ContactsList;
+import com.zzoneday.etegram.mainFrame.contactList.ContactsList;
+import com.zzoneday.etegram.mainFrame.contactList.SearchPanel;
 
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class Loader {
@@ -21,10 +23,10 @@ public class Loader {
         Education.startProgram();
 
         JFrame jFrame = new JFrame();
-        jFrame.setSize(265, 630);
+        jFrame.setSize(255, 630);
         jFrame.setUndecorated(false);
-        ContactsList list = new ContactsList();
-        jFrame.setContentPane(list.getRootPanel());
+        SearchPanel searchPanel = new SearchPanel(new ScrollPane());
+        jFrame.setContentPane(searchPanel.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }

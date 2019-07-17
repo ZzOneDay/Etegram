@@ -1,4 +1,4 @@
-package com.zzoneday.etegram;
+package garbage;
 
 import javax.swing.*;
 

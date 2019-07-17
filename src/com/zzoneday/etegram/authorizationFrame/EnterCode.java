@@ -1,7 +1,8 @@
-package com.zzoneday.etegram.authorization;
+package com.zzoneday.etegram.authorizationFrame;
 
+import com.zzoneday.etegram.CustomFont;
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.main.MainForm;
+import com.zzoneday.etegram.mainFrame.MainForm;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -38,24 +39,24 @@ public class EnterCode implements authorization {
         mainText.setText(
                 "<html><center>На данный номер телефона было отправлено\n SMS-сообщение с кодом подтверждения. " +
                         "Пожалуйста, введите этот код в поле ниже:<center></html>");
-        mainText.setFont(Education.getCustomFont("OpenSansRegular", 14f));
+        mainText.setFont(CustomFont.getCustomFont("OpenSansRegular", 14f));
         mainText.setForeground(Color.WHITE);
 
         //Текст номера телефона пользователя
         textYourNumber.setText(getEnteredNumberToSting(enteredNumber));
         textYourNumber.setBackground(new Color(0, 0, 0, 0));
-        textYourNumber.setFont(Education.getCustomFont("OpenSansLight", 38f));
+        textYourNumber.setFont(CustomFont.getCustomFont("OpenSansLight", 38f));
         textYourNumber.setForeground(Color.lightGray);
 
         //Форма для ввода кода
         passwordField1.setBackground(new Color(0, 0, 0, 0));
-        passwordField1.setFont(Education.getCustomFont("OpenSansRegular", 34f));
+        passwordField1.setFont(CustomFont.getCustomFont("OpenSansRegular", 34f));
         passwordField1.setForeground(Color.white);
         passwordField1.setBorder(null);
 
         //Кнопка "Продолжить" для перехода в следующее окно
         buttonNext.setText("ПРОДОЛЖИТЬ");
-        buttonNext.setFont(Education.getCustomFont("OpenSansRegular", 20f));
+        buttonNext.setFont(CustomFont.getCustomFont("OpenSansRegular", 20f));
         buttonNext.setForeground(Color.WHITE);
         buttonNext.setIcon(new ImageIcon(buttonBackground));
         buttonNext.setHorizontalTextPosition(0);

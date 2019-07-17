@@ -1,7 +1,8 @@
-package com.zzoneday.etegram.main.contactList;
+package com.zzoneday.etegram.mainFrame.contactList;
 
+import com.zzoneday.etegram.CustomFont;
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.main.UserAvatar;
+import com.zzoneday.etegram.mainFrame.UserAvatar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,9 +30,9 @@ public class Contact {
         contactMessageJLabel.setText(message);
         contactTimeJLabel.setText(time);
         //Подгоняем шрифты
-        contactNameJLabel.setFont(Education.getCustomFont("OpenSansSemiBold", 16));
-        contactMessageJLabel.setFont(Education.getCustomFont("OpenSansRegular", 12));
-        contactTimeJLabel.setFont(Education.getCustomFont("OpenSansLight",10));
+        contactNameJLabel.setFont(CustomFont.getCustomFont("OpenSansSemiBold", 16));
+        contactMessageJLabel.setFont(CustomFont.getCustomFont("OpenSansRegular", 12));
+        contactTimeJLabel.setFont(CustomFont.getCustomFont("OpenSansLight",10));
 
         //Рамка для контакта
 //        rootPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -66,9 +67,12 @@ public class Contact {
                 super.paintComponent(g);
                 if (target) {
                     g.setColor(new Color(0, 181, 231));
-                    g.drawLine(46, 0, 46, 62);
-                    g.drawLine(47, 0, 47, 62);
-                    g.drawLine(48, 0, 48, 62);
+                    int y = 58;
+                    for (int x = 43; x<48; x++) {
+                        g.drawLine(x, 0, x, y);
+                        g.drawLine(x, 0, x, y);
+                        g.drawLine(x, 0, x, y);
+                    }
                     contactTimeJLabel.setVisible(false);
                 } else {
                     //Если контакт выбран, время сообщения скрыто, если не выбран, время появляется

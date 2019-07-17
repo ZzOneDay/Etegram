@@ -1,4 +1,4 @@
-package com.zzoneday.etegram.authorization;
+package com.zzoneday.etegram.authorizationFrame;
 
 import javax.swing.*;
 

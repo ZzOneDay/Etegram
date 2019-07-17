@@ -1,6 +1,6 @@
 package com.zzoneday.etegram;
 
-import com.zzoneday.etegram.authorization.EnterPhoneNumber;
+import com.zzoneday.etegram.authorizationFrame.EnterPhoneNumber;
 import org.javagram.TelegramApiBridge;
 import org.javagram.response.AuthCheckedPhone;
 
@@ -16,9 +16,7 @@ public class Education {
     static private JFrame jFrame;
     private static Decoration decoration;
 
-    static private Font light;
-    static private Font regular;
-    static private Font semiBond;
+
 
     private static boolean workStatusToNormal = true; //Режим отработки = Нет
 
@@ -51,7 +49,7 @@ public class Education {
 
     static public void startProgram() {
 
-        loadCustomFont();
+        new CustomFont(); //Создаем класс своих шрифтов
 
         jFrame = new JFrame();
         decoration = new Decoration(jFrame);
@@ -77,45 +75,6 @@ public class Education {
     static private String cleanStringToNumber(String string)
     {
         return string.trim().replaceAll("[^0-9]+", "");
-    }
-
-    private static void loadCustomFont() {
-        //Если шрифт не прогрузиться будет обычный TimesRoman;
-        try {
-            //create the font to use. Specify the size!
-            light = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansLight.ttf"));
-            regular = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansRegular.ttf"));
-            semiBond = Font.createFont(Font.TRUETYPE_FONT, new File("res/OpenSans/OpenSansSemiBold.ttf"));
-
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            //register the font
-            ge.registerFont(light);
-            ge.registerFont(regular);
-            ge.registerFont(semiBond);
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    static public Font getCustomFont (String fontName, float fontSize)
-    {
-        Font font = new Font("TimesRoman", Font.PLAIN, 12);
-        if (fontName.equals("OpenSansLight"))
-        {
-            font = light;
-        }
-        if (fontName.equals("OpenSansRegular"))
-        {
-            font = regular;
-        }
-        if (fontName.equals("OpenSansSemiBold"))
-        {
-            font = semiBond;
-        }
-        System.out.println(font.getFontName());
-        return font.deriveFont(fontSize);
     }
 
 

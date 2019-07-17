@@ -1,4 +1,4 @@
-package com.zzoneday.etegram.main;
+package com.zzoneday.etegram;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,5 +36,4 @@ public class TimeConverter {
 
         return stringTime;
     }
-
 }

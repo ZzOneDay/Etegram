@@ -1,4 +1,4 @@
-package com.zzoneday.etegram.main;
+package com.zzoneday.etegram.mainFrame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -105,12 +105,6 @@ public class UserAvatar {
         target = !target;
         setMask(target,this.online);
     }
-
-
-
-
-
-
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

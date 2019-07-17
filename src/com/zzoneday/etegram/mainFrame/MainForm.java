@@ -1,17 +1,16 @@
-package com.zzoneday.etegram.main;
+package com.zzoneday.etegram.mainFrame;
 
+import com.zzoneday.etegram.CustomFont;
 import com.zzoneday.etegram.Education;
-import com.zzoneday.etegram.main.contactList.Contact;
-import com.zzoneday.etegram.main.contactList.ContactsList;
+import com.zzoneday.etegram.mainFrame.contactList.ContactsList;
+import com.zzoneday.etegram.mainFrame.contactList.SearchPanel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainForm {
     private JPanel rootPanel;
@@ -23,7 +22,6 @@ public class MainForm {
     private JButton buttonSetting;
     private JButton button3;
     private JLabel userName;
-    private JButton button1;
     private JPanel userIcon;
     private JPanel contactsMain;
     private JPanel mainContactsPanel;
@@ -46,11 +44,15 @@ public class MainForm {
         userIcon.add(userImage.getRootPanel());
         userName.setText("Павел Новиков");
         userName.setForeground(Color.LIGHT_GRAY);
-        userName.setFont(Education.getCustomFont("OpenSansRegular", 15));
+        userName.setFont(CustomFont.getCustomFont("OpenSansRegular", 15));
 
         //КонтактЛист
         ContactsList contactsList = new ContactsList();
         contactsMain.add(contactsList.getRootPanel());
+
+        //Поиск КонтактЛист
+        SearchPanel searchPanel = new SearchPanel(new ScrollPane());
+        UpContactsPanel.add(searchPanel.getRootPanel());
     }
 
     public JPanel getRootPanel() {

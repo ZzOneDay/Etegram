@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zzoneday.etegram.main.MainForm">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.zzoneday.etegram.mainFrame.MainForm">
   <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
       <xy x="33" y="47" width="800" height="600"/>
@@ -50,7 +50,7 @@
       <splitpane id="ef487" binding="mainPanel">
         <constraints border-constraint="Center"/>
         <properties>
-          <dividerLocation value="250"/>
+          <dividerLocation value="252"/>
           <dividerSize value="0"/>
           <enabled value="true"/>
           <focusable value="true"/>
@@ -71,18 +71,12 @@
               <grid id="afc78" binding="UpContactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints border-constraint="North"/>
                 <properties>
-                  <minimumSize width="78" height="50"/>
-                  <preferredSize width="78" height="50"/>
+                  <maximumSize width="2147483647" height="46"/>
+                  <minimumSize width="255" height="46"/>
+                  <preferredSize width="255" height="46"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="25d9d" class="javax.swing.JButton" binding="button1" default-binding="true">
-                    <constraints border-constraint="Center"/>
-                    <properties>
-                      <text value="Button"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="630fc" binding="downContactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints border-constraint="South"/>
@@ -100,9 +94,12 @@
                   </component>
                 </children>
               </grid>
-              <grid id="b358e" binding="contactsMain" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+              <grid id="b358e" binding="contactsMain" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints border-constraint="Center"/>
-                <properties/>
+                <properties>
+                  <alignmentX value="0.0"/>
+                  <alignmentY value="0.0"/>
+                </properties>
                 <border type="none"/>
                 <children/>
               </grid>
