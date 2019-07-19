@@ -7,10 +7,14 @@
     <properties>
       <alignmentX value="0.0"/>
       <alignmentY value="0.0"/>
-      <maximumSize width="250" height="32767"/>
-      <minimumSize width="250" height="32767"/>
+      <doubleBuffered value="true"/>
+      <enabled value="true"/>
+      <focusable value="true"/>
+      <maximumSize width="250" height="450"/>
+      <minimumSize width="250" height="450"/>
       <opaque value="false"/>
-      <preferredSize width="250" height="32767"/>
+      <preferredSize width="250" height="450"/>
+      <visible value="true"/>
     </properties>
     <border type="none"/>
     <children/>

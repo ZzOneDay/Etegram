@@ -2,33 +2,22 @@ package com.zzoneday.etegram;
 
 import com.zzoneday.etegram.authorizationFrame.EnterPhoneNumber;
 import org.javagram.TelegramApiBridge;
+import org.javagram.response.AuthAuthorization;
 import org.javagram.response.AuthCheckedPhone;
 
 import javax.swing.*;
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Education {
 
-    static private TelegramApiBridge bridge;
+    static public TelegramApiBridge bridge;
     static private JFrame jFrame;
     private static Decoration decoration;
+    static public AuthAuthorization authAuthorization;
 
 
-
-    private static boolean workStatusToNormal = true; //Режим отработки = Нет
-
-    static public boolean getWorkStatus ()
-    {
-        return workStatusToNormal;
-    }
-
-    static public void setWorkStatus (Boolean workStatusIsNormal)
-    {
-        workStatusToNormal = workStatusIsNormal;
-    }
+    public static boolean workInOnline = true; //Режим отработки = false
 
 
     static private void startTelegramApiBridge() {
@@ -62,7 +51,7 @@ public class Education {
         jFrame.setVisible(true);
 
         //Сделает видимым лого, если авторизация ок то загрузит уже окно ввода, декарация перерисовывает
-        if (getWorkStatus()) {
+        if (Education.workInOnline) {
         startTelegramApiBridge();
         }
 
@@ -111,7 +100,7 @@ public class Education {
 
     static public void authorizationUserByCode(String code) throws IOException {
         System.out.println("Отправка кода для авторизации: " + cleanStringToNumber(code));
-        bridge.authSignIn(cleanStringToNumber(code));
+        authAuthorization = bridge.authSignIn(cleanStringToNumber(code));
     }
 
 

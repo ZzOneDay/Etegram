@@ -3,7 +3,9 @@ package com.zzoneday.etegram.mainFrame;
 import com.zzoneday.etegram.CustomFont;
 import com.zzoneday.etegram.Education;
 import com.zzoneday.etegram.mainFrame.contactList.ContactsList;
+import com.zzoneday.etegram.mainFrame.contactList.IconPlusPanel;
 import com.zzoneday.etegram.mainFrame.contactList.SearchPanel;
+import org.telegram.api.TLUserProfilePhoto;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,7 +22,6 @@ public class MainForm {
     private JPanel UpContactsPanel;
     private JPanel downContactsPanel;
     private JButton buttonSetting;
-    private JButton button3;
     private JLabel userName;
     private JPanel userIcon;
     private JPanel contactsMain;
@@ -40,9 +41,22 @@ public class MainForm {
         buttonSetting.setBorder(null);
 
         //Верхняя панель, с Иконкой, ИмяПользователя, Настройки
-        UserAvatar userImage = new UserAvatar("res/User29.png","blue-mini");
-        userIcon.add(userImage.getRootPanel());
-        userName.setText("Павел Новиков");
+
+        if (Education.workInOnline)
+        {
+////            UserAvatar userImage = new UserAvatar(), "blue-mini");
+//            userIcon.add(userImage.getRootPanel());
+//            userName.setText(
+//                    Education.authAuthorization.getUser().getFirstName() +
+//                            Education.authAuthorization.getUser().getLastName());
+
+        }
+        else {
+            UserAvatar userImage = new UserAvatar("res/User29.png", "blue-mini");
+            userIcon.add(userImage.getRootPanel());
+            userName.setText("Павел Новиков");
+        }
+
         userName.setForeground(Color.LIGHT_GRAY);
         userName.setFont(CustomFont.getCustomFont("OpenSansRegular", 15));
 
@@ -53,6 +67,18 @@ public class MainForm {
         //Поиск КонтактЛист
         SearchPanel searchPanel = new SearchPanel(new ScrollPane());
         UpContactsPanel.add(searchPanel.getRootPanel());
+
+        //Нижняя панель КонтактЛиста
+        IconPlusPanel iconPlusPanel = new IconPlusPanel();
+        downContactsPanel.add(iconPlusPanel.getRootPanel());
+
+//        JPanel background = new JPanel( new BorderLayout() );
+//        background.add( new JTextArea(), BorderLayout.CENTER );
+//        background.add( new JButton("Button"), BorderLayout.SOUTH );
+//
+//        contactsMain.add(background);
+
+
     }
 
     public JPanel getRootPanel() {

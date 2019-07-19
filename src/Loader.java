@@ -1,21 +1,23 @@
 import com.zzoneday.etegram.Education;
 import com.zzoneday.etegram.mainFrame.contactList.ContactsList;
-import com.zzoneday.etegram.mainFrame.contactList.SearchPanel;
+import com.zzoneday.etegram.mainFrame.contactList.IconPlusPanel;
+import com.zzoneday.etegram.mainFrame.dialogForm.DialogForm;
 
 
 import javax.swing.*;
-import java.awt.*;
 
 
 public class Loader {
 
     public static void main(String[] args) {
 
+
+
         int newEnter = JOptionPane.showConfirmDialog(new JPanel(),"Войти в обычном рабочем режиме?",
                 "Меню входа в приложение", JOptionPane.YES_NO_OPTION);
         if (newEnter == JOptionPane.NO_OPTION)
         {
-            Education.setWorkStatus(false);
+            Education.workInOnline = false;
             //false - режим разрабочика; Изначально задано true - обычная работа приложения
         }
 
@@ -25,8 +27,11 @@ public class Loader {
         JFrame jFrame = new JFrame();
         jFrame.setSize(255, 630);
         jFrame.setUndecorated(false);
-        SearchPanel searchPanel = new SearchPanel(new ScrollPane());
-        jFrame.setContentPane(searchPanel.getRootPanel());
+        DialogForm dialogForm = new DialogForm();
+        IconPlusPanel iconPlusPanel = new IconPlusPanel();
+        ContactsList contactsList = new ContactsList();
+//        SearchPanel searchPanel = new SearchPanel(new ScrollPane());
+        jFrame.setContentPane(dialogForm.getRootPanel());
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }

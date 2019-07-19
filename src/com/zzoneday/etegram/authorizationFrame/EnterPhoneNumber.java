@@ -48,7 +48,7 @@ public class EnterPhoneNumber implements authorization {
 
 
         buttonNext.setText("ПРОДОЛЖИТЬ");
-        buttonNext.setFont(CustomFont.getCustomFont("OpenSansRegular",20f));
+        buttonNext.setFont(CustomFont.getCustomFont("OpenSansRegular", 20f));
         buttonNext.setForeground(Color.WHITE);
 
         buttonNext.setIcon(new ImageIcon(buttonBackground));
@@ -60,7 +60,7 @@ public class EnterPhoneNumber implements authorization {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 System.out.println("click");
-                if (Education.getWorkStatus()) {
+                if (Education.workInOnline) {
                     //Боевой режим
                     if (Education.getResultUserIsRegistered(getEnteredNumber())) {
                         try {
@@ -82,8 +82,7 @@ public class EnterPhoneNumber implements authorization {
                         System.out.println("Длинна строчки с кодом" + getEnteredNumber().length());
                         Registration authorizationFormRegistration = new Registration(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormRegistration.getRootPanel());
-                    }
-                    else {
+                    } else {
                         EnterCode authorizationFormEnterSMSCode = new EnterCode(getEnteredNumber());
                         Education.setNextJPanelInMainJFrame(authorizationFormEnterSMSCode.getRootPanel());
                         System.out.println("Указан номер: " + getEnteredNumber()); //Пишет номер из введеной строчки
@@ -125,7 +124,7 @@ public class EnterPhoneNumber implements authorization {
                 Graphics2D twoD = (Graphics2D) g;
                 twoD.setColor(Color.WHITE);
                 twoD.setStroke(new BasicStroke(2));
-                twoD.drawLine(0,22+10+20, 370, 22+20+10);
+                twoD.drawLine(0, 22 + 10 + 20, 370, 22 + 20 + 10);
             }
         };
     }

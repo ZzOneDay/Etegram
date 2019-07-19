@@ -19,7 +19,7 @@ public class UserAvatar {
     private JPanel rootPanel;
     private Color customGray = new Color(231,231,231);
 
-    UserAvatar(String pathname, String type) {
+    public UserAvatar(String pathname, String type) {
         try {
             image = ImageIO.read(new File(pathname));
             if (type.equals("blue-mini")) {

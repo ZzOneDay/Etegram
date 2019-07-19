@@ -81,18 +81,12 @@
               <grid id="630fc" binding="downContactsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints border-constraint="South"/>
                 <properties>
-                  <minimumSize width="78" height="80"/>
-                  <preferredSize width="78" height="80"/>
+                  <minimumSize width="78" height="50"/>
+                  <opaque value="false"/>
+                  <preferredSize width="78" height="50"/>
                 </properties>
                 <border type="none"/>
-                <children>
-                  <component id="5cf3a" class="javax.swing.JButton" binding="button3" default-binding="true">
-                    <constraints border-constraint="Center"/>
-                    <properties>
-                      <text value="Button"/>
-                    </properties>
-                  </component>
-                </children>
+                <children/>
               </grid>
               <grid id="b358e" binding="contactsMain" layout-manager="BorderLayout" hgap="0" vgap="0">
                 <constraints border-constraint="Center"/>

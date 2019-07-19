@@ -66,17 +66,15 @@ public class Registration {
         buttonNext.setHorizontalTextPosition(0);
 
 
-
-
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
-        Border border = BorderFactory.createLineBorder(Color.BLACK,0,true);
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 0, true);
         buttonJPanel.setBorder(border);
 
 
         buttonNext.addActionListener(e -> JOptionPane.showMessageDialog(rootPanel,
                 "Отправка на регистрацию:\n" +
-                textFieldRegistrationName.getText() + "\n" +
-                textFieldRegistrationFamily.getText() + "\n" +
+                        textFieldRegistrationName.getText() + "\n" +
+                        textFieldRegistrationFamily.getText() + "\n" +
                         number
                 , "Registration", JOptionPane.INFORMATION_MESSAGE));
     }
@@ -145,15 +143,16 @@ public class Registration {
                 Graphics2D line1 = (Graphics2D) g;
                 line1.setColor(Color.WHITE);
                 line1.setStroke(new BasicStroke(2));
-                line1.drawLine(30,22+10+20+18, 270, 22+20+10+18);
+                line1.drawLine(30, 22 + 10 + 20 + 18, 270, 22 + 20 + 10 + 18);
 
                 Graphics2D line2 = (Graphics2D) g;
                 line2.setColor(Color.WHITE);
                 line2.setStroke(new BasicStroke(2));
-                line2.drawLine(30,22+10+20+55+30+8, 270, 22+20+10+55+30+8);
+                line2.drawLine(30, 22 + 10 + 20 + 55 + 30 + 8, 270, 22 + 20 + 10 + 55 + 30 + 8);
             }
         };
     }
+
     private void loadImage() {
         try {
             logo = ImageIO.read(new File("res/GUI Components/logo-mini.png"));

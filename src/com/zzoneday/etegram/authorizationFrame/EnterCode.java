@@ -67,7 +67,7 @@ public class EnterCode implements authorization {
                     boolean codeResult = false;
 
 
-                    if (Education.getWorkStatus()) {
+                    if (Education.workInOnline) {
                         try {
                             //Вводим код чтобы авторизоваться
                             Education.authorizationUserByCode(code);
@@ -80,8 +80,8 @@ public class EnterCode implements authorization {
                         }
                         if (codeResult) {
                             System.out.println("Окна пока нет)");
-//                            MainForm mainForm = new MainForm();
-//                            Education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
+                            MainForm mainForm = new MainForm();
+                            Education.setNextJPanelInMainJFrame(mainForm.getRootPanel());
                         } else {
                             JOptionPane.showMessageDialog(rootPanel, "Неверный код");
                             passwordField1.grabFocus();
@@ -102,9 +102,9 @@ public class EnterCode implements authorization {
     //+79117079229 = 12 символов
     {
         String enteredNumber;
-        System.out.println(number + "have length =" + number.length() );
+        System.out.println(number + "have length =" + number.length());
         if (number.length() == 12) {
-            String part1 = number.substring(0,2); //+7
+            String part1 = number.substring(0, 2); //+7
             String part2 = " " + number.substring(2, 5);//911
             String part3 = " " + number.substring(5, 8); // 707
             String part4 = "-" + number.substring(8, 10); //92

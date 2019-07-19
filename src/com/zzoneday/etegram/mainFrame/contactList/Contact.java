@@ -19,8 +19,10 @@ public class Contact {
     private Boolean target = false;
     private UserAvatar userAvatar;
 
+    private String name;
 
-    public Contact(String name, String message, String time, String pathname, Boolean online) {
+
+    Contact(String name, String message, String time, String pathname, Boolean online) {
         //Получаем автарку
         userAvatar = new UserAvatar(pathname, online);
         rootPanel.setBackground(userAvatar.getColor()); //рисуем в цвет фона
@@ -33,6 +35,8 @@ public class Contact {
         contactNameJLabel.setFont(CustomFont.getCustomFont("OpenSansSemiBold", 16));
         contactMessageJLabel.setFont(CustomFont.getCustomFont("OpenSansRegular", 12));
         contactTimeJLabel.setFont(CustomFont.getCustomFont("OpenSansLight",10));
+
+        this.name = name;
 
         //Рамка для контакта
 //        rootPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -57,6 +61,15 @@ public class Contact {
         userAvatar.changeOnlineAvatar();
         rootPanel.repaint();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    //    @Override
+//    public String toString() {
+//        return name;
+//    }
 
 
     private void createUIComponents() {
